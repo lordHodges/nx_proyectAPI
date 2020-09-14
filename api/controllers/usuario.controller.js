@@ -11,7 +11,7 @@ class UsuarioController {
   async getUsuarios(req, res) {
     let usuarios = await this._usuarioService.getAll();
     usuarios = usuarios.map((usuario) => mapper(UsuarioDto, usuario));
-    console.log(usuarios);
+    //console.log(usuarios);
     return res.status(201).send(usuarios);
   }
   async getUsuario(req, res) {
@@ -32,6 +32,7 @@ class UsuarioController {
       return res.status(404).send();
     }
     usuario = mapper(UsuarioDto, usuario);
+
     return res.send({
       payload: usuario,
     });
@@ -54,9 +55,16 @@ class UsuarioController {
   async updateUsuario(req, res) {
     const { body } = req;
     const { id } = req.params;
+    if (body.hash == null || body.hash == "") {
+      let u = await this._usuarioService.get(id);
+      u = mapper(UsuarioDto, u);
+      body.hash = u.hash;
+    } else {
+      body.hash = await this._usuarioService.encriptarPassword(body.hash);
+    }
 
-    await this._usuarioService.update(id, body);
-    return res.status(204).send();
+    const updated = await this._usuarioService.update(id, body);
+    return res.status(201).send(updated);
   }
   async deleteUsuario(req, res) {
     const { id } = req.params;
@@ -102,9 +110,6 @@ class UsuarioController {
       apellido,
       token,
     });
-  }
-  loggout(req, res) {
-    return res.status(200).send({ message: "hasta pronto" });
   }
 }
 module.exports = UsuarioController;

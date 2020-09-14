@@ -1,6 +1,6 @@
 class Rol {
   id = 0;
-  nombre = null;
+  nombreRol = null;
   createdAt = null;
   updatedAt = null;
 }

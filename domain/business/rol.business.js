@@ -1,5 +1,5 @@
 const BaseBusiness = require("./base.business");
-const { Rol } = require("./models");
+const { Rol } = require("../models");
 
 class RolBusiness extends BaseBusiness {
   constructor({ RolRepository }) {

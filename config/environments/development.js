@@ -3,7 +3,7 @@ module.exports = {
   DB: {
     username: "root",
     password: "nanco2121",
-    database: "ng_finanzas_db",
+    database: "ng_finanzasDev_db",
     host: "localhost",
     dialect: "mysql",
     logging: false,

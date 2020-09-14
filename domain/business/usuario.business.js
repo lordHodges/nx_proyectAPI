@@ -1,7 +1,7 @@
 const mapper = require("automapper-js");
 const bcrypt = require("bcryptjs");
 const BaseBusiness = require("./base.business");
-const { Usuario } = require("./models");
+const { Usuario } = require("../models");
 
 class UsuarioBusiness extends BaseBusiness {
   constructor({ UsuarioRepository }) {
