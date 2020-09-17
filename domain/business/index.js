@@ -1,7 +1,7 @@
 module.exports = {
   UsuarioBusiness: require("./usuario.business"),
   RolBusiness: require("./rol.business"),
-  IngresoRentacarBusiness: require("./rentacar/ingresoRentacar.business"),
+  IngresoBusiness: require("./ingreso/ingreso.business"),
   EgresoBancarioBusiness: require("./egreso/egresoBancario.business"),
   EgresoCostoBusiness: require("./egreso/egresoCosto.business"),
   EgresoGastoBusiness: require("./egreso/egresoGasto.business"),

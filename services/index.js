@@ -2,7 +2,7 @@ module.exports = {
   UsuarioService: require("./usuario.service"),
   RolService: require("./rol.service"),
   VerificarToken: require("./verificarToken.service"),
-  IngresoRentacarService: require("./rentacar/ingresoRentacar.service"),
+  IngresoService: require("./ingreso/ingreso.service"),
   EgresoBancarioService: require("./egreso/egresoBancario.service"),
   EgresoCostoService: require("./egreso/egresoCosto.service"),
   EgresoGastoService: require("./egreso/egresoGasto.service"),

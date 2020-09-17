@@ -1,5 +1,5 @@
-const BaseBusiness = require("./base.business");
-const { Ingreso } = require("./models");
+const BaseBusiness = require("../base.business");
+const { Ingreso } = require("../../models");
 class IngresoBusiness extends BaseBusiness {
   constructor({ IngresoRepository }) {
     super(IngresoRepository, Ingreso);
@@ -11,3 +11,4 @@ class IngresoBusiness extends BaseBusiness {
     //TODO crear primero el metodo en el repositorio
   }
 }
+module.exports = IngresoBusiness;

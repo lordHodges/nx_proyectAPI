@@ -1,7 +1,7 @@
 module.exports = {
   Usuario: require("./usuario"),
   Rol: require("./rol"),
-  IngresoRentacar: require("./rentacar/ingresoRentacar"),
+  Ingreso: "./ingreso/ingreso.js",
   EgresoBancario: require("./egreso/egresoBancario"),
   EgresoCosto: require("./egreso/egresoCosto"),
   EgresoGasto: require("./egreso/egresoGasto"),

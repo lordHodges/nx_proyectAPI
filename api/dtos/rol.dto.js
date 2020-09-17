@@ -1,8 +1,8 @@
-class Rol {
+class RolDto {
   id = 0;
   nombre = "";
 
-  createdAt = null;
-  updatedAt = null;
+  createdAt = "";
+  updatedAt = "";
 }
-module.exports = Rol;
+module.exports = RolDto;

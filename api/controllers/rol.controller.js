@@ -8,9 +8,7 @@ class RolController {
   async getRoles(req, res) {
     let roles = await this._rolService.getAll();
     roles = roles.map((rol) => mapper(RolDto, rol));
-    return res.send({
-      payload: roles,
-    });
+    return res.send(roles);
   }
 
   async getRol(req, res) {

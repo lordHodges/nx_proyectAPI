@@ -10,22 +10,25 @@ module.exports = function ({
   RolRoutes,
   UsuarioRoutes,
   AuthRoutes,
-  IngresoRentacarRoutes,
   EgresoBancarioRoutes,
   EgresoCostoRoutes,
   EgresoGastoRoutes,
   EgresoImpuestoRoutes,
   EgresoRemuneracionRoutes,
+  IngresoRoutes,
+  EmpresaRoutes,
+  SucursalRoutes,
 }) {
   const router = Router();
   const apiRoute = Router();
 
   apiRoute.use(bodyParser.json()).use(compression()).use(cors());
-
+  apiRoute.use("/empresa", EmpresaRoutes);
+  apiRoute.use("/sucursal", SucursalRoutes);
   apiRoute.use("/usuarios", UsuarioRoutes);
-  apiRoute.use("/ingresoRentacar", IngresoRentacarRoutes);
   apiRoute.use("/rol", RolRoutes);
   apiRoute.use("/auth", AuthRoutes);
+  apiRoute.use("/ingreso", IngresoRoutes);
   apiRoute.use("/egresoRemuneracion", EgresoRemuneracionRoutes);
   apiRoute.use("/egresoImpuesto", EgresoImpuestoRoutes);
 

@@ -3,11 +3,7 @@ const { Router } = require("express");
 module.exports = function ({ UsuarioController, VerificarToken }) {
   const router = Router();
 
-  router.get(
-    "/mostrar",
-    VerificarToken.verifying,
-    UsuarioController.getUsuarios.bind(UsuarioController)
-  );
+  router.get("/", UsuarioController.getUsuarios.bind(UsuarioController));
 
   router.get(
     "/:id",

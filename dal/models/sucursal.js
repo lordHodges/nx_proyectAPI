@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Sucursal.hasMany(models.Ingreso, {
+        foreignKey: "idSucursal",
+      });
       Sucursal.hasMany(models.EgresoBancario, {
         foreignKey: "idSucursal",
       });

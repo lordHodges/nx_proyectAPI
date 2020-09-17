@@ -1,4 +1,4 @@
-class Usuario {
+class UsuarioDto {
   id = 0;
   nombre = "";
   apellido = "";
@@ -8,4 +8,4 @@ class Usuario {
   createdAt = null;
   updatedAt = null;
 }
-module.exports = Usuario;
+module.exports = UsuarioDto;

@@ -1,4 +1,4 @@
 const EgresoDto = require("./egreso.dto");
 
-class EgresoGastiDto extends EgresoDto {}
-module.exports = EgresoGastiDto;
+class EgresoGastoDto extends EgresoDto {}
+module.exports = EgresoGastoDto;

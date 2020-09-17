@@ -1,7 +1,7 @@
 module.exports = {
   RolRepository: require("./rol.repository"),
   UsuarioRepository: require("./usuario.repository"),
-  IngresoRentacarRepository: require("./ingresoRentacar.repository"),
+  IngresoRepository: require("./ingreso/ingreso,repository"),
   EgresoBancarioRepository: require("./egreso/egresoBancario.repository"),
   EgresoCostoRepository: require("./egreso/egresoCosto.repository"),
   EgresoGastoRepository: require("./egreso/egresoGasto.repository"),
