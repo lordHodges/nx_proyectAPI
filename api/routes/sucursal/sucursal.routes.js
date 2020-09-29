@@ -4,6 +4,10 @@ module.exports = function ({ SucursalController }) {
   const router = Router();
 
   router.get("/", SucursalController.getSucursales.bind(SucursalController));
+  router.get(
+    "/sucursalesEmpresa/:idEmpresa",
+    SucursalController.getSucursalByEmpresa.bind(SucursalController)
+  );
   router.get("/:id", SucursalController.getSucursal.bind(SucursalController));
   router.post("/", SucursalController.createSucursal.bind(SucursalController));
   router.put(

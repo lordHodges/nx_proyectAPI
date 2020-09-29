@@ -12,7 +12,7 @@ class UsuarioController {
     let usuarios = await this._usuarioService.getAll();
     usuarios = usuarios.map((usuario) => mapper(UsuarioDto, usuario));
     //console.log(usuarios);
-    return res.status(201).send(usuarios);
+    return res.status(200).send(usuarios);
   }
   async getUsuario(req, res) {
     const { id } = req.params;

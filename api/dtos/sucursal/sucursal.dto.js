@@ -1,6 +1,15 @@
-const EmpresaDto = require("../../dtos/empresa/empresa.dto");
 
-class SucursalDto extends EmpresaDto {
+
+class SucursalDto {
+  id = 0;
+  razonSocial = "";
+  rut = "";
+  descripcion = "";
+  giro = "";
+  actividad = "";
+  direccion = "";
+  createdAt = "";
+  updatedAt = "";
   idEmpresa = 0;
 }
 module.exports = SucursalDto;

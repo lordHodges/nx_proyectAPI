@@ -22,6 +22,15 @@ class SucursalController {
       payload: sucursal,
     });
   }
+  async getSucursalByEmpresa(req, res) {
+    const { idEmpresa } = req.params;
+    let sucursal = await this._sucursalService.getByEmpresa(idEmpresa);
+    if (!sucursal) {
+      return res.status(404).send();
+    }
+    sucursal = mapper(SucursalDto, sucursal);
+    return res.send(sucursal);
+  }
 
   async createSucursal(req, res) {
     const { body } = req;

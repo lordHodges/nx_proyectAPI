@@ -1,7 +1,6 @@
 module.exports = {
   Usuario: require("./usuario"),
   Rol: require("./rol"),
-  Ingreso: "./ingreso/ingreso.js",
   EgresoBancario: require("./egreso/egresoBancario"),
   EgresoCosto: require("./egreso/egresoCosto"),
   EgresoGasto: require("./egreso/egresoGasto"),
@@ -10,4 +9,5 @@ module.exports = {
   Ingreso: require("./ingreso/ingreso"),
   Empresa: require("./empresa"),
   Sucursal: require("./sucursal"),
+  IngresoHostal: require("./ingreso/ingresoHostal"),
 };

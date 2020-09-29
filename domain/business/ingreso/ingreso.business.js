@@ -6,9 +6,5 @@ class IngresoBusiness extends BaseBusiness {
     this._ingresoRepository = IngresoRepository;
     this.ingresoToMap = Ingreso;
   }
-
-  async getByEmpresa(idEmpresa) {
-    //TODO crear primero el metodo en el repositorio
-  }
 }
 module.exports = IngresoBusiness;
