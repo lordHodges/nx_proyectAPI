@@ -1,4 +1,4 @@
 const Egreso = require("./egreso");
 
-class EgresoCosto extends Egreso {}
-module.exports = EgresoCosto;
+class EgresoBancario extends Egreso {}
+module.exports = EgresoBancario;

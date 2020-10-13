@@ -24,7 +24,7 @@ class EgresoBancarioController {
     });
   }
   async create(req, res) {
-    const { body } = req.params;
+    const { body } = req;
     let created = await this._service.create(body);
 
     const egresoBancario = mapper(EgresoBancarioDto, created);
