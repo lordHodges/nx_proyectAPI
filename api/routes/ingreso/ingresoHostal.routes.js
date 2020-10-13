@@ -8,6 +8,10 @@ module.exports = function ({ IngresoHostalController }) {
     IngresoHostalController.getIngresos.bind(IngresoHostalController)
   );
   router.get(
+    "/conUsuario",
+    IngresoHostalController.getIngresosWithUsuario.bind(IngresoHostalController)
+  );
+  router.get(
     "/:id",
     IngresoHostalController.getIngreso.bind(IngresoHostalController)
   );

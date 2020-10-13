@@ -12,6 +12,11 @@ class IngresoHostalController {
     ingresos = ingresos.map((ingreso) => mapper(IngresoHostalDto, ingreso));
     return res.status(201).send(ingresos);
   }
+  async getIngresosWithUsuario(req, res) {
+    let ingresos = await this._ingresoService.getAllWithJoin();
+    ingresos = ingresos.map((x) => mapper(IngresoHostalDto, x));
+    return res.send(ingresos);
+  }
   async getIngreso(req, res) {
     const { id } = req.params;
     let ingreso = await this._ingresoService.get(id);
