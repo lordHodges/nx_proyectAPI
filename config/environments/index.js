@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const DEVELOPMENT = require("./development");
+const QA = require("./qa");
 
 const { NODE_ENV } = process.env;
 
