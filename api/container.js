@@ -60,6 +60,7 @@ const {
   EmpresaService,
   SucursalService,
   IngresoHostalService,
+  FileService,
 } = require("../services");
 
 //repositories
@@ -127,6 +128,7 @@ container
     EmpresaService: asClass(EmpresaService).singleton(),
     SucursalService: asClass(SucursalService).singleton(),
     IngresoHostalService: asClass(IngresoHostalService).singleton(),
+    FileService: asClass(FileService).singleton(),
   })
   .register({
     UsuarioRepository: asClass(UsuarioRepository).singleton(),

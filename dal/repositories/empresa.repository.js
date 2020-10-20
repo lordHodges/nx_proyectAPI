@@ -8,6 +8,7 @@ class EmpresaRepository extends BaseRepository {
   }
   getAllWithSucursal() {
     return this._db[this.empresa].findAll({
+      
       include: [{ model: this._db.Sucursal }],
     });
   }

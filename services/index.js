@@ -10,4 +10,5 @@ module.exports = {
   SucursalService: require("./sucursal.service"),
   EmpresaService: require("./empresa.service"),
   IngresoHostalService: require("./ingreso/ingresoHostal.service"),
+  FileService: require("./files.service"),
 };

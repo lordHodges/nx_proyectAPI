@@ -1,2 +1,4 @@
  //ignorar modificaciones de entorno
  .env
+ .uploads/
+

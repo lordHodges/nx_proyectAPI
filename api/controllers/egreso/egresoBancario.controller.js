@@ -1,9 +1,25 @@
 const { EgresoBancarioDto } = require("../../dtos");
 const mapper = require("automapper-js");
+//imports for multer
+
 class EgresoBancarioController {
-  constructor({ EgresoBancarioService }) {
+  constructor({ EgresoBancarioService, FileService }) {
     this._service = EgresoBancarioService;
+    this._fileService = FileService;
   }
+  //prueba con multer
+  async upload(req, res) {
+    if (!req.file) {
+      console.log("No file received");
+      return res.send({
+        success: false,
+      });
+    } else {
+      console.log("file received successfully");
+      return res.status(200).send(req.file.filename);
+    }
+  }
+  //prueba con multer
 
   async getAll(req, res) {
     let egresosBancarios = await this._service.getAll();
@@ -12,6 +28,7 @@ class EgresoBancarioController {
     );
     return res.status(200).send(egresosBancarios);
   }
+
   async get(req, res) {
     const { id } = req.params;
     let egreso = await this._service.get(id);
