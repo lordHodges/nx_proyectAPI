@@ -10,41 +10,26 @@ const Routes = require("../api/routes");
 const UsuarioRoutes = require("../api/routes/usuario.routes");
 const RolRoutes = require("../api/routes/rol.routes");
 const AuthRoutes = require("../api/routes/auth.routes");
-const EgresoBancarioRoutes = require("../api/routes/egreso/egresoBancario.routes");
-const EgresoCostoRoutes = require("../api/routes/egreso/egresoCosto.routes");
-const EgresoGastoRoutes = require("../api/routes/egreso/egresoGasto.routes");
-const EgresoImpuestoRoutes = require("../api/routes/egreso/egresoImpuesto.routes");
-const EgresoRemuneracionRoutes = require("../api/routes/egreso/egresoRemuneracion.routes");
 const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
 const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
-const IngresoHostalRoutes = require("../api/routes/ingreso/ingresoHostal.routes");
+const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 
 // business
 const {
   UsuarioBusiness,
   RolBusiness,
-  EgresoBancarioBusiness,
-  EgresoCostoBusiness,
-  EgresoGastoBusiness,
-  EgresoImpuestoBusiness,
-  EgresoRemuneracionBusiness,
   EmpresaBusiness,
   SucursalBusiness,
-  IngresoHostalBusiness,
+  EgresoHostalBusiness,
 } = require("../domain/business");
 
 //controllers
 const {
   UsuarioController,
   RolController,
-  EgresoBancarioController,
-  EgresoCostoController,
-  EgresoGastoController,
-  EgresoImpuestoController,
-  EgresoRemuneracionController,
   EmpresaController,
   SucursalController,
-  IngresoHostalController,
+  EgresoHostalController,
 } = require("../api/controllers");
 
 //services
@@ -52,29 +37,19 @@ const {
   UsuarioService,
   RolService,
   VerificarToken,
-  EgresoBancarioService,
-  EgresoCostoService,
-  EgresoGastoService,
-  EgresoImpuestoService,
-  EgresoRemuneracionService,
   EmpresaService,
   SucursalService,
-  IngresoHostalService,
   FileService,
+  EgresoHostalService,
 } = require("../services");
 
 //repositories
 const {
   UsuarioRepository,
   RolRepository,
-  EgresoBancarioRepository,
-  EgresoGastoRepository,
-  EgresoCostoRepository,
-  EgresoImpuestoRepository,
-  EgresoRemuneracionRepository,
   EmpresaRepository,
   SucursalRepository,
-  IngresoHostalRepository,
+  EgresoHostalRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -93,24 +68,12 @@ container
     RolController: asClass(RolController).singleton(),
     RolRoutes: asFunction(RolRoutes).singleton(),
     AuthRoutes: asFunction(AuthRoutes).singleton(),
-    EgresoBancarioController: asClass(EgresoBancarioController).singleton(),
-    EgresoBancarioRoutes: asFunction(EgresoBancarioRoutes).singleton(),
-    EgresoCostoController: asClass(EgresoCostoController).singleton(),
-    EgresoCostoRoutes: asFunction(EgresoCostoRoutes).singleton(),
-    EgresoGastoController: asClass(EgresoGastoController).singleton(),
-    EgresoGastoRoutes: asFunction(EgresoGastoRoutes).singleton(),
-    EgresoImpuestoController: asClass(EgresoImpuestoController).singleton(),
-    EgresoImpuestoRoutes: asFunction(EgresoImpuestoRoutes).singleton(),
-    EgresoRemuneracionController: asClass(
-      EgresoRemuneracionController
-    ).singleton(),
-    EgresoRemuneracionRoutes: asFunction(EgresoRemuneracionRoutes).singleton(),
     EmpresaRoutes: asFunction(EmpresaRoutes).singleton(),
     EmpresaController: asClass(EmpresaController).singleton(),
     SucursalRoutes: asFunction(SucursalRoutes).singleton(),
     SucursalController: asClass(SucursalController).singleton(),
-    IngresoHostalController: asClass(IngresoHostalController).singleton(),
-    IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
+    EgresoHostalRoutes: asFunction(EgresoHostalRoutes).singleton(),
+    EgresoHostalController: asClass(EgresoHostalController).singleton(),
   })
   .register({
     config: asValue(config),
@@ -120,41 +83,24 @@ container
     UsuarioService: asClass(UsuarioService).singleton(),
     RolService: asClass(RolService).singleton(),
     VerificarToken: asClass(VerificarToken).singleton(),
-    EgresoBancarioService: asClass(EgresoBancarioService).singleton(),
-    EgresoCostoService: asClass(EgresoCostoService).singleton(),
-    EgresoGastoService: asClass(EgresoGastoService).singleton(),
-    EgresoImpuestoService: asClass(EgresoImpuestoService).singleton(),
-    EgresoRemuneracionService: asClass(EgresoRemuneracionService).singleton(),
     EmpresaService: asClass(EmpresaService).singleton(),
     SucursalService: asClass(SucursalService).singleton(),
-    IngresoHostalService: asClass(IngresoHostalService).singleton(),
     FileService: asClass(FileService).singleton(),
+    EgresoHostalService: asClass(EgresoHostalService).singleton(),
   })
   .register({
     UsuarioRepository: asClass(UsuarioRepository).singleton(),
     RolRepository: asClass(RolRepository).singleton(),
-    EgresoBancarioRepository: asClass(EgresoBancarioRepository).singleton(),
-    EgresoCostoRepository: asClass(EgresoCostoRepository).singleton(),
-    EgresoGastoRepository: asClass(EgresoGastoRepository).singleton(),
-    EgresoRemuneracionRepository: asClass(
-      EgresoRemuneracionRepository
-    ).singleton(),
-    EgresoImpuestoRepository: asClass(EgresoImpuestoRepository).singleton(),
     EmpresaRepository: asClass(EmpresaRepository).singleton(),
     SucursalRepository: asClass(SucursalRepository).singleton(),
-    IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
+    EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
   })
   .register({
     UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
     RolBusiness: asClass(RolBusiness).singleton(),
-    EgresoBancarioBusiness: asClass(EgresoBancarioBusiness).singleton(),
-    EgresoCostoBusiness: asClass(EgresoCostoBusiness).singleton(),
-    EgresoGastoBusiness: asClass(EgresoGastoBusiness).singleton(),
-    EgresoRemuneracionBusiness: asClass(EgresoRemuneracionBusiness).singleton(),
-    EgresoImpuestoBusiness: asClass(EgresoImpuestoBusiness).singleton(),
     EmpresaBusiness: asClass(EmpresaBusiness).singleton(),
     SucursalBusiness: asClass(SucursalBusiness).singleton(),
-    IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
+    EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
   });
 module.exports = container;
 //TODO agregar registros en container

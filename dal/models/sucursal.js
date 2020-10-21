@@ -8,27 +8,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Sucursal.belongsTo(models.Empresa, {
+        foreignKey: "idEmpresa",
+      });
       Sucursal.hasMany(models.IngresoHostal, {
         foreignKey: "idSucursal",
       });
-      Sucursal.hasMany(models.EgresoBancario, {
+      Sucursal.hasMany(models.EgresoHostal, {
         foreignKey: "idSucursal",
-      });
-      Sucursal.hasMany(models.EgresoCosto, {
-        foreignKey: "idSucursal",
-      });
-      Sucursal.hasMany(models.EgresoGasto, {
-        foreignKey: "idSucursal",
-      });
-      Sucursal.hasMany(models.EgresoImpuesto, {
-        foreignKey: "idSucursal",
-      });
-      Sucursal.hasMany(models.EgresoRemuneracion, {
-        foreignKey: "idSucursal",
-      });
-
-      Sucursal.belongsTo(models.Empresa, {
-        foreignKey: "idEmpresa",
       });
     }
   }
@@ -44,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Sucursal",
+      tableName: "Sucursal",
     }
   );
   return Sucursal;
