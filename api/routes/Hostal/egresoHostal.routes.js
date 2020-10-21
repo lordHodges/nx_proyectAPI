@@ -1,5 +1,26 @@
 const { Router } = require("express");
 
+const multer = require("multer");
+var express = require("express");
+
+const path = require("path");
+
+var DIR = "./uploads/egresoHostal";
+express.static(DIR);
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, DIR);
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({ storage: storage });
+
 module.exports = function ({ EgresoHostalController }) {
   const router = Router();
 
@@ -19,6 +40,11 @@ module.exports = function ({ EgresoHostalController }) {
   router.post(
     "/conRespaldo",
     EgresoHostalController.createEgresoWithRespaldo.bind(EgresoHostalController)
+  );
+  router.post(
+    "/upload",
+    upload.single("photo"),
+    EgresoBancarioController.upload.bind(EgresoBancarioController)
   );
   /*  router.put(
     "/:id",
