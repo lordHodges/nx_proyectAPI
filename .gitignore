@@ -1,4 +1,7 @@
- //ignorar modificaciones de entorno
+ 
  .env
- uploads/
+ /uploads
+ /node_modules
+ .vscode
+
 
