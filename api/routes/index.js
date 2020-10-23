@@ -1,5 +1,5 @@
 const { Router } = require("express");
-
+const { HOOD, HAAD } = require("../../config/environments");
 const bodyParser = require("body-parser");
 
 const cors = require("cors");
@@ -23,7 +23,7 @@ module.exports = function ({
     .use(compression())
     .use(
       cors({
-        origin: ["http://localhost:4200", "http://127.0.0.1:4200"],
+        origin: [HOOD, HAAD],
         credentials: true,
       })
     );

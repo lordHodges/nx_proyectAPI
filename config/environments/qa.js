@@ -1,5 +1,7 @@
 module.exports = {
   PORT: process.env.PORT,
+  HOOD: process.env.HOOD,
+  HAAD: process.env.HAAD,
   DB: {
     username: "root",
     password: "almendra",
