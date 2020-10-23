@@ -23,7 +23,6 @@ module.exports = function ({
     .use(compression())
     .use(
       cors({
-        origin: [HOOD, HAAD],
         credentials: true,
       })
     );

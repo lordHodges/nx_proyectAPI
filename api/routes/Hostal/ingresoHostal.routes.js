@@ -4,7 +4,6 @@ const multer = require("multer");
 var express = require("express");
 var app = express();
 const path = require("path");
-const cors = require("cors");
 
 var DIR = "./uploads/ingresoHostal";
 express.static(DIR);
@@ -21,12 +20,6 @@ let storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-/* app.use(
-  cors({
-    origin: ["http://localhost:4200", "http://127.0.0.1:4200"],
-    credentials: true,
-  })
-); */
 
 module.exports = function ({ IngresoHostalController }) {
   const router = Router();
