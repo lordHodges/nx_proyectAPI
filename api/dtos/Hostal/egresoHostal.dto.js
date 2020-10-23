@@ -9,6 +9,6 @@ class EgresoHostalDto {
   descripcion = "";
   idSucursal = 0;
   idUsuario = 0;
-  respaldoEgresos = [RespaldoEgresoDto];
+  RespaldoEgresos = [RespaldoEgresoDto];
 }
 module.exports = EgresoHostalDto;

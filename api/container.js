@@ -13,6 +13,7 @@ const AuthRoutes = require("../api/routes/auth.routes");
 const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
 const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
 const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
+const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
 
 // business
 const {
@@ -21,6 +22,7 @@ const {
   EmpresaBusiness,
   SucursalBusiness,
   EgresoHostalBusiness,
+  IngresoHostalBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -30,6 +32,7 @@ const {
   EmpresaController,
   SucursalController,
   EgresoHostalController,
+  IngresoHostalController,
 } = require("../api/controllers");
 
 //services
@@ -41,6 +44,7 @@ const {
   SucursalService,
   FileService,
   EgresoHostalService,
+  IngresoHostalService,
 } = require("../services");
 
 //repositories
@@ -50,6 +54,7 @@ const {
   EmpresaRepository,
   SucursalRepository,
   EgresoHostalRepository,
+  IngresoHostalRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -73,7 +78,9 @@ container
     SucursalRoutes: asFunction(SucursalRoutes).singleton(),
     SucursalController: asClass(SucursalController).singleton(),
     EgresoHostalRoutes: asFunction(EgresoHostalRoutes).singleton(),
+    IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
     EgresoHostalController: asClass(EgresoHostalController).singleton(),
+    IngresoHostalController: asClass(IngresoHostalController).singleton(),
   })
   .register({
     config: asValue(config),
@@ -87,6 +94,7 @@ container
     SucursalService: asClass(SucursalService).singleton(),
     FileService: asClass(FileService).singleton(),
     EgresoHostalService: asClass(EgresoHostalService).singleton(),
+    IngresoHostalService: asClass(IngresoHostalService).singleton(),
   })
   .register({
     UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -94,6 +102,7 @@ container
     EmpresaRepository: asClass(EmpresaRepository).singleton(),
     SucursalRepository: asClass(SucursalRepository).singleton(),
     EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
+    IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
   })
   .register({
     UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -101,6 +110,7 @@ container
     EmpresaBusiness: asClass(EmpresaBusiness).singleton(),
     SucursalBusiness: asClass(SucursalBusiness).singleton(),
     EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
+    IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
   });
 module.exports = container;
 //TODO agregar registros en container

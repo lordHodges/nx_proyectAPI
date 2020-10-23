@@ -5,6 +5,6 @@ module.exports = {
   SucursalService: require("./sucursal.service"),
   EmpresaService: require("./empresa.service"),
   FileService: require("./files.service"),
-  EgresoHostalService: require('./Hostal/egresoHostal.service'),
-  
+  EgresoHostalService: require("./Hostal/egresoHostal.service"),
+  IngresoHostalService: require("./Hostal/ingresoHostal.service"),
 };

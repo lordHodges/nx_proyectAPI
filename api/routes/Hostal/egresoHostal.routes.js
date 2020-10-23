@@ -2,8 +2,9 @@ const { Router } = require("express");
 
 const multer = require("multer");
 var express = require("express");
-
+var app = express();
 const path = require("path");
+const cors = require("cors");
 
 var DIR = "./uploads/egresoHostal";
 express.static(DIR);
@@ -20,11 +21,17 @@ let storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+/* app.use(
+  cors({
+    origin: ["http://localhost:4200", "http://127.0.0.1:4200"],
+    credentials: true,
+  })
+); */
 
 module.exports = function ({ EgresoHostalController }) {
   const router = Router();
 
-  /* router.get(
+  router.get(
     "/",
     EgresoHostalController.getEgresos.bind(EgresoHostalController)
   );
@@ -33,10 +40,7 @@ module.exports = function ({ EgresoHostalController }) {
     "/:id",
     EgresoHostalController.getEgreso.bind(EgresoHostalController)
   );
-  router.post(
-    "/",
-    EgresoHostalController.createEgreso.bind(EgresoHostalController)
-  ); */
+
   router.post(
     "/conRespaldo",
     EgresoHostalController.createEgresoWithRespaldo.bind(EgresoHostalController)
@@ -44,8 +48,17 @@ module.exports = function ({ EgresoHostalController }) {
   router.post(
     "/upload",
     upload.single("photo"),
-    EgresoBancarioController.upload.bind(EgresoBancarioController)
+    EgresoHostalController.upload.bind(EgresoHostalController)
   );
+
+  app.use("/api/egresoHostal/download", express.static(DIR));
+  router.get("/download/*", function (req, res) {
+    filename = req.params[0];
+    filepath =
+      path.join(__dirname, "../../../uploads") + "/egresoHostal/" + filename;
+
+    return res.sendFile(filepath);
+  });
   /*  router.put(
     "/:id",
     EgresoHostalController.updateEgreso.bind(EgresoHostalController)

@@ -4,4 +4,5 @@ module.exports = {
   EmpresaRepository: require("./empresa.repository"),
   SucursalRepository: require("./sucursal.repository"),
   EgresoHostalRepository: require("./egresoHostal.repository"),
+  IngresoHostalRepository: require("./ingresoHostal.repository"),
 };
