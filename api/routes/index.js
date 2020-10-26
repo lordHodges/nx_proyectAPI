@@ -17,15 +17,9 @@ module.exports = function ({
 }) {
   const router = Router();
   const apiRoute = Router();
+  const whitelist = ["http://localhost:4000", "http://abc.com"];
+  apiRoute.use(bodyParser.json()).use(compression()).use(cors(whitelist));
 
-  apiRoute
-    .use(bodyParser.json())
-    .use(compression())
-    .use(
-      cors({
-        credentials: true,
-      })
-    );
   apiRoute.use("/empresa", EmpresaRoutes);
   apiRoute.use("/sucursal", SucursalRoutes);
   apiRoute.use("/usuarios", UsuarioRoutes);
