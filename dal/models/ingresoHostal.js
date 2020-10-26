@@ -21,13 +21,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   IngresoHostal.init(
     {
-      tipoIngreso: DataTypes.STRING,
       fecha: DataTypes.STRING,
-      descripcionIngreso: DataTypes.STRING,
       monto: DataTypes.INTEGER,
+      nDocumento: DataTypes.STRING,
       tipoCliente: DataTypes.STRING,
       cliente: DataTypes.STRING,
-      tipoPago: DataTypes.STRING,
+      tipoIngreso: DataTypes.STRING,
+      descripcionIngreso: DataTypes.STRING,
+      estadoPago: DataTypes.STRING,
     },
     {
       sequelize,
