@@ -13,7 +13,10 @@ class IngresoHostalController {
       });
     } else {
       console.log("file received successfully");
-      return res.status(200).send(req.file.filename);
+
+      setTimeout(() => {
+        return res.status(200).send(req.file.filename);
+      }, 2000);
     }
   }
 

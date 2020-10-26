@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <title>Angular 10 - User Registration and Login Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- bootstrap css -->
+
+    <script
+      src="https://kit.fontawesome.com/85ff576fff.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <app>Loading...</app>
+  <script src="runtime.js" defer></script><script src="polyfills.js" defer></script><script src="styles.js" defer></script><script src="scripts.js" defer></script><script src="vendor.js" defer></script><script src="main.js" defer></script></body>
+</html>

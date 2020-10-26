@@ -17,7 +17,7 @@ module.exports = function ({
 }) {
   const router = Router();
   const apiRoute = Router();
-  const whitelist = ["http://localhost:4000", "http://abc.com"];
+  const whitelist = ["http://localhost:4000", "http://www.imlchile.cl"];
   apiRoute.use(bodyParser.json()).use(compression()).use(cors(whitelist));
 
   apiRoute.use("/empresa", EmpresaRoutes);
