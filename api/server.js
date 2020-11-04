@@ -1,15 +1,13 @@
 const express = require("express");
 const morgan = require("morgan");
-var fs = require("fs");
-var https = require("https");
+const fs = require("fs");
+const https = require("https");
 const bodyParser = require("body-parser");
-const { version } = require("punycode");
-const key = fs.readFileSync("./server.key");
-const cert = fs.readFileSync("./server.cert");
 
 class Server {
   constructor({ config, router }) {
     this._config = config;
+
     this._express = express();
     this._express.use(router);
     this._express.use(morgan("dev"));
@@ -27,7 +25,7 @@ class Server {
       });
       
  */
-      https
+      const serv = https
         .createServer(
           {
             key: fs.readFileSync("server.key"),
@@ -36,8 +34,10 @@ class Server {
           this._express
         )
         .listen(this._config.PORT, function () {
+          const { port } = serv.address();
+
           console.log(
-            "Example app listening on port 3000! Go to https://localhost:3000"
+            `Example app listening on port ${port}, .. Go to https://localHost:${port} `
           );
           resolve();
         });

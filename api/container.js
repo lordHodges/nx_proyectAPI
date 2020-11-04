@@ -14,47 +14,57 @@ const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
 const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
 const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
+const ClienteRoutes = require("../api/routes/cliente.routes");
+const CausaRoutes = require("../api/routes/Abogados/causas.routes");
 
 // business
 const {
-  UsuarioBusiness,
-  RolBusiness,
-  EmpresaBusiness,
-  SucursalBusiness,
-  EgresoHostalBusiness,
-  IngresoHostalBusiness,
+	UsuarioBusiness,
+	RolBusiness,
+	EmpresaBusiness,
+	SucursalBusiness,
+	EgresoHostalBusiness,
+	IngresoHostalBusiness,
+	ClienteBusiness,
+	CausaBusiness,
 } = require("../domain/business");
 
 //controllers
 const {
-  UsuarioController,
-  RolController,
-  EmpresaController,
-  SucursalController,
-  EgresoHostalController,
-  IngresoHostalController,
+	UsuarioController,
+	RolController,
+	EmpresaController,
+	SucursalController,
+	EgresoHostalController,
+	IngresoHostalController,
+	ClienteController,
+	CausaController,
 } = require("../api/controllers");
 
 //services
 const {
-  UsuarioService,
-  RolService,
-  VerificarToken,
-  EmpresaService,
-  SucursalService,
-  FileService,
-  EgresoHostalService,
-  IngresoHostalService,
+	UsuarioService,
+	RolService,
+	VerificarToken,
+	EmpresaService,
+	SucursalService,
+	FileService,
+	EgresoHostalService,
+	IngresoHostalService,
+	ClienteService,
+	CausaService,
 } = require("../services");
 
 //repositories
 const {
-  UsuarioRepository,
-  RolRepository,
-  EmpresaRepository,
-  SucursalRepository,
-  EgresoHostalRepository,
-  IngresoHostalRepository,
+	UsuarioRepository,
+	RolRepository,
+	EmpresaRepository,
+	SucursalRepository,
+	EgresoHostalRepository,
+	IngresoHostalRepository,
+	ClienteRepository,
+	CausaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -64,53 +74,63 @@ const db = require("../dal/models/");
 const container = createContainer();
 
 container
-  .register({
-    app: asClass(StartUp).singleton(),
-    router: asFunction(Routes).singleton(),
-    server: asClass(Server).singleton(),
-    UsuarioController: asClass(UsuarioController).singleton(),
-    UsuarioRoutes: asFunction(UsuarioRoutes).singleton(),
-    RolController: asClass(RolController).singleton(),
-    RolRoutes: asFunction(RolRoutes).singleton(),
-    AuthRoutes: asFunction(AuthRoutes).singleton(),
-    EmpresaRoutes: asFunction(EmpresaRoutes).singleton(),
-    EmpresaController: asClass(EmpresaController).singleton(),
-    SucursalRoutes: asFunction(SucursalRoutes).singleton(),
-    SucursalController: asClass(SucursalController).singleton(),
-    EgresoHostalRoutes: asFunction(EgresoHostalRoutes).singleton(),
-    IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
-    EgresoHostalController: asClass(EgresoHostalController).singleton(),
-    IngresoHostalController: asClass(IngresoHostalController).singleton(),
-  })
-  .register({
-    config: asValue(config),
-    db: asValue(db),
-  })
-  .register({
-    UsuarioService: asClass(UsuarioService).singleton(),
-    RolService: asClass(RolService).singleton(),
-    VerificarToken: asClass(VerificarToken).singleton(),
-    EmpresaService: asClass(EmpresaService).singleton(),
-    SucursalService: asClass(SucursalService).singleton(),
-    FileService: asClass(FileService).singleton(),
-    EgresoHostalService: asClass(EgresoHostalService).singleton(),
-    IngresoHostalService: asClass(IngresoHostalService).singleton(),
-  })
-  .register({
-    UsuarioRepository: asClass(UsuarioRepository).singleton(),
-    RolRepository: asClass(RolRepository).singleton(),
-    EmpresaRepository: asClass(EmpresaRepository).singleton(),
-    SucursalRepository: asClass(SucursalRepository).singleton(),
-    EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
-    IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
-  })
-  .register({
-    UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
-    RolBusiness: asClass(RolBusiness).singleton(),
-    EmpresaBusiness: asClass(EmpresaBusiness).singleton(),
-    SucursalBusiness: asClass(SucursalBusiness).singleton(),
-    EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
-    IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
-  });
+	.register({
+		app: asClass(StartUp).singleton(),
+		router: asFunction(Routes).singleton(),
+		server: asClass(Server).singleton(),
+		UsuarioController: asClass(UsuarioController).singleton(),
+		UsuarioRoutes: asFunction(UsuarioRoutes).singleton(),
+		RolController: asClass(RolController).singleton(),
+		RolRoutes: asFunction(RolRoutes).singleton(),
+		AuthRoutes: asFunction(AuthRoutes).singleton(),
+		EmpresaRoutes: asFunction(EmpresaRoutes).singleton(),
+		EmpresaController: asClass(EmpresaController).singleton(),
+		SucursalRoutes: asFunction(SucursalRoutes).singleton(),
+		SucursalController: asClass(SucursalController).singleton(),
+		EgresoHostalRoutes: asFunction(EgresoHostalRoutes).singleton(),
+		IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
+		EgresoHostalController: asClass(EgresoHostalController).singleton(),
+		IngresoHostalController: asClass(IngresoHostalController).singleton(),
+		ClienteController: asClass(ClienteController).singleton(),
+		ClienteRoutes: asFunction(ClienteRoutes).singleton(),
+		CausaRoutes: asFunction(CausaRoutes).singleton(),
+		CausaController: asClass(CausaController).singleton(),
+	})
+	.register({
+		config: asValue(config),
+		db: asValue(db),
+	})
+	.register({
+		UsuarioService: asClass(UsuarioService).singleton(),
+		RolService: asClass(RolService).singleton(),
+		VerificarToken: asClass(VerificarToken).singleton(),
+		EmpresaService: asClass(EmpresaService).singleton(),
+		SucursalService: asClass(SucursalService).singleton(),
+		FileService: asClass(FileService).singleton(),
+		EgresoHostalService: asClass(EgresoHostalService).singleton(),
+		IngresoHostalService: asClass(IngresoHostalService).singleton(),
+		ClienteService: asClass(ClienteService).singleton(),
+		CausaService: asClass(CausaService).singleton(),
+	})
+	.register({
+		UsuarioRepository: asClass(UsuarioRepository).singleton(),
+		RolRepository: asClass(RolRepository).singleton(),
+		EmpresaRepository: asClass(EmpresaRepository).singleton(),
+		SucursalRepository: asClass(SucursalRepository).singleton(),
+		EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
+		IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
+		ClienteRepository: asClass(ClienteRepository).singleton(),
+		CausaRepository: asClass(CausaRepository).singleton(),
+	})
+	.register({
+		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
+		RolBusiness: asClass(RolBusiness).singleton(),
+		EmpresaBusiness: asClass(EmpresaBusiness).singleton(),
+		SucursalBusiness: asClass(SucursalBusiness).singleton(),
+		EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
+		IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
+		ClienteBusiness: asClass(ClienteBusiness).singleton(),
+		CausaBusiness: asClass(CausaBusiness).singleton(),
+	});
 module.exports = container;
 //TODO agregar registros en container
