@@ -7,4 +7,5 @@ module.exports = {
 	IngresoHostalController: require("./Hostal/ingresoHostal.controller.js"),
 	ClienteController: require("./cliente.controller"),
 	CausaController: require("./Abogados/causa.controller"),
+	CuotasCausaController: require("./Abogados/cuotasCausa.controller"),
 };

@@ -7,4 +7,5 @@ module.exports = {
 	IngresoHostalBusiness: require("./ingresoHostal.business"),
 	ClienteBusiness: require("./cliente.business"),
 	CausaBusiness: require("./causa.business"),
+	CuotasCausaBusiness: require("./cuotasCausa.business"),
 };

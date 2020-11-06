@@ -16,6 +16,7 @@ const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
 const ClienteRoutes = require("../api/routes/cliente.routes");
 const CausaRoutes = require("../api/routes/Abogados/causas.routes");
+const CuotasCausaRoutes = require("../api/routes/Abogados/cuotasCausa.routes");
 
 // business
 const {
@@ -27,6 +28,7 @@ const {
 	IngresoHostalBusiness,
 	ClienteBusiness,
 	CausaBusiness,
+	CuotasCausaBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -39,6 +41,7 @@ const {
 	IngresoHostalController,
 	ClienteController,
 	CausaController,
+	CuotasCausaController,
 } = require("../api/controllers");
 
 //services
@@ -53,6 +56,7 @@ const {
 	IngresoHostalService,
 	ClienteService,
 	CausaService,
+	CuotasCausaService,
 } = require("../services");
 
 //repositories
@@ -65,6 +69,7 @@ const {
 	IngresoHostalRepository,
 	ClienteRepository,
 	CausaRepository,
+	CuotasCausaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -95,6 +100,8 @@ container
 		ClienteRoutes: asFunction(ClienteRoutes).singleton(),
 		CausaRoutes: asFunction(CausaRoutes).singleton(),
 		CausaController: asClass(CausaController).singleton(),
+		CuotasCausaController: asClass(CuotasCausaController).singleton(),
+		CuotasCausaRoutes: asFunction(CuotasCausaRoutes).singleton(),
 	})
 	.register({
 		config: asValue(config),
@@ -111,6 +118,7 @@ container
 		IngresoHostalService: asClass(IngresoHostalService).singleton(),
 		ClienteService: asClass(ClienteService).singleton(),
 		CausaService: asClass(CausaService).singleton(),
+		CuotasCausaService: asClass(CuotasCausaService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -121,6 +129,7 @@ container
 		IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
 		ClienteRepository: asClass(ClienteRepository).singleton(),
 		CausaRepository: asClass(CausaRepository).singleton(),
+		CuotasCausaRepository: asClass(CuotasCausaRepository).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -131,6 +140,7 @@ container
 		IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
 		ClienteBusiness: asClass(ClienteBusiness).singleton(),
 		CausaBusiness: asClass(CausaBusiness).singleton(),
+		CuotasCausaBusiness: asClass(CuotasCausaBusiness).singleton(),
 	});
 module.exports = container;
 //TODO agregar registros en container

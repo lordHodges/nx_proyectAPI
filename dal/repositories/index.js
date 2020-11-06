@@ -7,4 +7,5 @@ module.exports = {
 	IngresoHostalRepository: require("./ingresoHostal.repository"),
 	ClienteRepository: require("./cliente.repository"),
 	CausaRepository: require("./causa.repository"),
+	CuotasCausaRepository: require("./cuotasCausa.repository"),
 };

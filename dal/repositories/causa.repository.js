@@ -7,7 +7,11 @@ class CausaRepository extends BaseRepository {
 	}
 	async crearSinoExiste(codigo) {
 		const finded = await this._db.Causa.findOne({
-			include: [{ model: this._db.CuotasCausa }, { model: this._db.Abogado }],
+			include: [
+				{ model: this._db.CuotasCausa },
+				{ model: this._db.Cliente },
+				{ model: this._db.Abogado },
+			],
 			where: { codigo: codigo },
 		});
 		if (finded) {
@@ -26,6 +30,13 @@ class CausaRepository extends BaseRepository {
 	async getCausasPorCliente(idCliente) {
 		const causas = await this._db.Causa.findAll({ where: { idCliente } });
 		return causas;
+	}
+	async getCausaConCuota(idCausa) {
+		const causa = await this._db.Causa.findOne({
+			include: [{ model: this._db.CuotasCausa }],
+			where: { id: idCausa },
+		});
+		return causa;
 	}
 }
 

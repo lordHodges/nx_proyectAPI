@@ -13,7 +13,13 @@ module.exports = function ({ CausaController }) {
 		"/:idCliente",
 		CausaController.getCausasPorCliente.bind(CausaController)
 	);
-	router.get('/mostrarUna/:idCausa', CausaController.getCausa.bind(CausaController));
-
+	router.get(
+		"/mostrarUna/:idCausa",
+		CausaController.getCausa.bind(CausaController)
+	);
+	router.get(
+		"/causaConCuota/:idCausa",
+		CausaController.getCausaConCuota.bind(CausaController)
+	);
 	return router;
 };

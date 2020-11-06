@@ -20,5 +20,9 @@ class CausaBusiness extends BaseBusiness {
 		const causas = await this._causaRepository.getCausasPorCliente(idCliente);
 		return causas;
 	}
+	async getCausaConCuota(idCausa) {
+		const causa = await this._causaRepository.getCausaConCuota(idCausa);
+		return causa;
+	}
 }
 module.exports = CausaBusiness;

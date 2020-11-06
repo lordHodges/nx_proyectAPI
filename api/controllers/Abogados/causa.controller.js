@@ -14,7 +14,7 @@ class CausaController {
 	async guardarCausa(req, res) {
 		const { body } = req;
 		const guardado = await this._causaService.guardarCausa(body);
-		return res.status(204).send({ payload: guardado });
+		return res.status(201).send({ payload: guardado });
 	}
 	async getCausasPorCliente(req, res) {
 		const { idCliente } = req.params;
@@ -26,6 +26,12 @@ class CausaController {
 		const causa = await this._causaService.get(idCausa);
 		return res.status(200).send(causa);
 	}
+	async getCausaConCuota(req, res) {
+		const { idCausa } = req.params;
+		const causa = await this._causaService.getCausaConCuota(idCausa);
+		return res.status(200).send(causa);
+	}
+
 	//TODO validar automapper del metodo base
 }
 module.exports = CausaController;

@@ -17,5 +17,9 @@ class CausaService extends BaseService {
 		const causas = await this._causaBusiness.getCausasPorCliente(idCliente);
 		return causas;
 	}
+	async getCausaConCuota(idCausa) {
+		const causa = await this._causaBusiness.getCausaConCuota(idCausa);
+		return causa;
+	}
 }
 module.exports = CausaService;
