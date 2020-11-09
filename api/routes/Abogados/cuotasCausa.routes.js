@@ -2,8 +2,8 @@ const { Router } = require("express");
 module.exports = function ({ CuotasCausaController }) {
 	const router = Router();
 
-	router.post(
-		"/:idCausa",
+	router.put(
+		"/:idCuota",
 		CuotasCausaController.registrarPago.bind(CuotasCausaController)
 	);
 

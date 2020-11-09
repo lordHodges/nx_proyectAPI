@@ -5,9 +5,12 @@ class CuotasCausaService extends BaseService {
 		super(CuotasCausaBusiness);
 		this._cuotasCausaBusiness = CuotasCausaBusiness;
 	}
-	async registrarPago(idCuota) {
-		const cuota = await this._cuotasCausaBusiness.registrarPago(idCuota);
-		return cuota;
+	async registrarPago(idCuota, cuota) {
+		const respuesta = await this._cuotasCausaBusiness.registrarPago(
+			idCuota,
+			cuota
+		);
+		return respuesta;
 	}
 }
 module.exports = CuotasCausaService;

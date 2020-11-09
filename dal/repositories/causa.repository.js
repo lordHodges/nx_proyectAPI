@@ -38,6 +38,13 @@ class CausaRepository extends BaseRepository {
 		});
 		return causa;
 	}
+	async actualizarSaldoPendiente(idCausa, montoConDescuento, estadoNuevo) {
+		await this._db.Causa.update(
+			{ saldoPendiente: montoConDescuento, estado: estadoNuevo },
+			{ where: { id: idCausa } }
+		);
+		return "ok";
+	}
 }
 
 module.exports = CausaRepository;

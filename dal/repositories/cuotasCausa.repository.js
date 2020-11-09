@@ -4,13 +4,13 @@ class CuotaCausaRepository extends BaseRepository {
 	constructor({ db }) {
 		super(db, "CuotasCausa");
 	}
-	async registrarPago(idCuota) {
-		const cuota = await this._db.CuotasCausa.update(
-			{ estado: "pagado" },
+	async registrarPago(idCuota, nuevoEstado) {
+		await this._db.CuotasCausa.update(
+			{ estado: nuevoEstado },
 			{ where: { id: idCuota } }
 		);
 
-		return cuota;
+		return "Cuota Pagada con Exito";
 	}
 }
 module.exports = CuotaCausaRepository;

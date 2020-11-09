@@ -4,11 +4,13 @@ class CuotasCausaController {
 	}
 	async registrarPago(req, res) {
 		const { idCuota } = req.params;
-		const cuota = await this._cuotasCausaService.registrarPago(idCuota);
+		const { body } = req;
+		const respuesta = await this._cuotasCausaService.registrarPago(
+			idCuota,
+			body
+		);
 
-		return res
-			.status(200)
-			.send({ payload: cuota, msj: "Cuota Pagada con exito" });
+		return res.status(200).send({ msj: respuesta });
 	}
 }
 module.exports = CuotasCausaController;

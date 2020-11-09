@@ -24,5 +24,22 @@ class CausaBusiness extends BaseBusiness {
 		const causa = await this._causaRepository.getCausaConCuota(idCausa);
 		return causa;
 	}
+	async actualizarSaldoPendiente(idCausa, montoAdescontar) {
+		const causa = await this._causaRepository.get(idCausa);
+		const saldoPendiente = causa.saldoPendiente;
+		const montoConDescuento = saldoPendiente - montoAdescontar;
+		let estadoCausa = "";
+		if (montoConDescuento == 0) {
+			estadoCausa = "pagado";
+		} else {
+			estadoCausa = "pendiente";
+		}
+		const respuesta = await this._causaRepository.actualizarSaldoPendiente(
+			causa.id,
+			montoConDescuento,
+			estadoCausa
+		);
+		return respuesta;
+	}
 }
 module.exports = CausaBusiness;
