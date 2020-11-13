@@ -21,5 +21,12 @@ class CausaService extends BaseService {
 		const causa = await this._causaBusiness.getCausaConCuota(idCausa);
 		return causa;
 	}
+	async asignarEquipo(idCausa, arrayEquipo) {
+		const equipoCreado = await this._causaBusiness.asignarEquipo(
+			idCausa,
+			arrayEquipo
+		);
+		return equipoCreado;
+	}
 }
 module.exports = CausaService;

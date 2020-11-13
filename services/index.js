@@ -9,5 +9,7 @@ module.exports = {
 	IngresoHostalService: require("./Hostal/ingresoHostal.service"),
 	ClienteService: require("./cliente.service"),
 	CausaService: require("./Abogados/causa.service"),
-	CuotasCausaService: require("./Abogados/cuotasCausa.service"),
+	ContratoClienteAbogadoService: require("./Abogados/contratoClienteAbogado.service"),
+	CuotasContratoAbogadoService: require("./Abogados/cuotasContratoAbogado.service"),
+	AbogadoService: require("./Abogados/abogado.service"),
 };

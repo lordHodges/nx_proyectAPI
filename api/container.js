@@ -16,7 +16,9 @@ const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
 const ClienteRoutes = require("../api/routes/cliente.routes");
 const CausaRoutes = require("../api/routes/Abogados/causas.routes");
-const CuotasCausaRoutes = require("../api/routes/Abogados/cuotasCausa.routes");
+const ContratoClienteAbogadoRoutes = require("../api/routes/Abogados/contratoClienteAbogado.routes");
+const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
+const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 
 // business
 const {
@@ -28,7 +30,9 @@ const {
 	IngresoHostalBusiness,
 	ClienteBusiness,
 	CausaBusiness,
-	CuotasCausaBusiness,
+	ContratoClienteAbogadoBusiness,
+	CuotasContratoAbogadoBusiness,
+	AbogadoBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -41,7 +45,9 @@ const {
 	IngresoHostalController,
 	ClienteController,
 	CausaController,
-	CuotasCausaController,
+	ContratoClienteAbogadoController,
+	CuotasContratoAbogadoController,
+	AbogadoController,
 } = require("../api/controllers");
 
 //services
@@ -56,7 +62,9 @@ const {
 	IngresoHostalService,
 	ClienteService,
 	CausaService,
-	CuotasCausaService,
+	ContratoClienteAbogadoService,
+	CuotasContratoAbogadoService,
+	AbogadoService,
 } = require("../services");
 
 //repositories
@@ -69,11 +77,15 @@ const {
 	IngresoHostalRepository,
 	ClienteRepository,
 	CausaRepository,
-	CuotasCausaRepository,
+	ContratoClienteAbogadoRepository,
+	CuotasContratoAbogadoRepository,
+	EquipoRepository,
+	AbogadoRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
 const db = require("../dal/models/");
+const cuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -100,8 +112,20 @@ container
 		ClienteRoutes: asFunction(ClienteRoutes).singleton(),
 		CausaRoutes: asFunction(CausaRoutes).singleton(),
 		CausaController: asClass(CausaController).singleton(),
-		CuotasCausaController: asClass(CuotasCausaController).singleton(),
-		CuotasCausaRoutes: asFunction(CuotasCausaRoutes).singleton(),
+		ContratoClienteAbogadoRoutes: asFunction(
+			ContratoClienteAbogadoRoutes
+		).singleton(),
+		ContratoClienteAbogadoController: asClass(
+			ContratoClienteAbogadoController
+		).singleton(),
+		CuotasContratoAbogadoRoutes: asFunction(
+			CuotasContratoAbogadoRoutes
+		).singleton(),
+		CuotasContratoAbogadoController: asClass(
+			CuotasContratoAbogadoController
+		).singleton(),
+		AbogadoRoutes: asFunction(AbogadoRoutes).singleton(),
+		AbogadoController: asClass(AbogadoController).singleton(),
 	})
 	.register({
 		config: asValue(config),
@@ -118,7 +142,13 @@ container
 		IngresoHostalService: asClass(IngresoHostalService).singleton(),
 		ClienteService: asClass(ClienteService).singleton(),
 		CausaService: asClass(CausaService).singleton(),
-		CuotasCausaService: asClass(CuotasCausaService).singleton(),
+		ContratoClienteAbogadoService: asClass(
+			ContratoClienteAbogadoService
+		).singleton(),
+		CuotasContratoAbogadoService: asClass(
+			CuotasContratoAbogadoService
+		).singleton(),
+		AbogadoService: asClass(AbogadoService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -129,7 +159,14 @@ container
 		IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
 		ClienteRepository: asClass(ClienteRepository).singleton(),
 		CausaRepository: asClass(CausaRepository).singleton(),
-		CuotasCausaRepository: asClass(CuotasCausaRepository).singleton(),
+		ContratoClienteAbogadoRepository: asClass(
+			ContratoClienteAbogadoRepository
+		).singleton(),
+		CuotasContratoAbogadoRepository: asClass(
+			CuotasContratoAbogadoRepository
+		).singleton(),
+		EquipoRepository: asClass(EquipoRepository).singleton(),
+		AbogadoRepository: asClass(AbogadoRepository).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -140,7 +177,12 @@ container
 		IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
 		ClienteBusiness: asClass(ClienteBusiness).singleton(),
 		CausaBusiness: asClass(CausaBusiness).singleton(),
-		CuotasCausaBusiness: asClass(CuotasCausaBusiness).singleton(),
+		ContratoClienteAbogadoBusiness: asClass(
+			ContratoClienteAbogadoBusiness
+		).singleton(),
+		CuotasContratoAbogadoBusiness: asClass(
+			CuotasContratoAbogadoBusiness
+		).singleton(),
+		AbogadoBusiness: asClass(AbogadoBusiness).singleton(),
 	});
 module.exports = container;
-//TODO agregar registros en container

@@ -4,11 +4,13 @@ const application = container.resolve("app");
 const db = container.resolve("db");
 
 application
-  .start()
-  .then(async () => {
-    await db.sequelize.sync({ alter: true });
-  })
-  .catch((err) => {
-    console.log(err);
-    process.exit();
-  });
+	.start()
+	.then(async () => {
+		await db.sequelize.sync({ alter: true }).then(() => {
+			console.log("tablas sincronizadas");
+		});
+	})
+	.catch((err) => {
+		console.log(err);
+		process.exit();
+	});

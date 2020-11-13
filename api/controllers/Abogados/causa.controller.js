@@ -31,7 +31,15 @@ class CausaController {
 		const causa = await this._causaService.getCausaConCuota(idCausa);
 		return res.status(200).send(causa);
 	}
-
-	//TODO validar automapper del metodo base
+	async asignarEquipo(req, res) {
+		const { body } = req;
+		const idCausa = body.idCausa;
+		const arrayEquipo = body.arrayEquipo;
+		const equipoCreado = await this._causaService.asignarEquipo(
+			idCausa,
+			arrayEquipo
+		);
+		return res.status(201).send(equipoCreado);
+	}
 }
 module.exports = CausaController;

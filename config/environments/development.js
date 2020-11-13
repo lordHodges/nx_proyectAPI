@@ -1,16 +1,15 @@
 module.exports = {
-  PORT: process.env.PORT,
-  DB: {
-    username: "root",
-    password: "nanco2121",
-    database: "ng_finanzasDev_db",
-    host: "localhost",
-    dialect: "mysql",
-    logging: false,
-  },
-  SECRET: "lordhodges_generateToken",
+	PORT: process.env.PORT,
+	DB: {
+		username: "root",
+		password: "nanco2121",
+		database: "ng_finanzasDev_db",
+		host: "localhost",
+		dialect: "mysql",
+		logging: false,
+	},
+	SECRET: "lordhodges_generateToken",
 };
-//TODO egregar archivos ded configuracion para cada entorno
 //sequelize db:migrate --url "mysql://root:nanco2121@localhost:3306/ng_finanzas_db
 /*  sequelize model:create --name Course --attributes name:string,status:string
 
