@@ -43,7 +43,7 @@ class UsuarioController {
 		const createdUsuario = await this._usuarioService.create(body);
 
 		//const usuario = mapper(UsuarioDto, createdUsuario);
-		const token = jwt.sign({ id: usuario.id }, this._config.SECRET, {
+		const token = jwt.sign({ id: createdUsuario.id }, this._config.SECRET, {
 			expiresIn: 60 * 60 * 24,
 		});
 
