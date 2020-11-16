@@ -1,10 +1,10 @@
 const BaseRepository = require("../base.repository");
 
-class EgresoHostalRepository extends BaseRepository {
+class EgresoFirmaRepository extends BaseRepository {
 	constructor({ db }) {
-		super(db, "EgresoHostal");
+		super(db, "EgresoFirma");
 		this._db = db;
-		this._egreso = "EgresoHostal";
+		this._egreso = "EgresoFirma";
 	}
 	getAllWithJoins() {
 		return this._db[this._egreso].findAll({
@@ -31,5 +31,4 @@ class EgresoHostalRepository extends BaseRepository {
 		});
 	}
 }
-
-module.exports = EgresoHostalRepository;
+module.exports = EgresoFirmaRepository;

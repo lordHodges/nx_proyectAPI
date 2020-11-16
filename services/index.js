@@ -12,4 +12,5 @@ module.exports = {
 	ContratoClienteAbogadoService: require("./Abogados/contratoClienteAbogado.service"),
 	CuotasContratoAbogadoService: require("./Abogados/cuotasContratoAbogado.service"),
 	AbogadoService: require("./Abogados/abogado.service"),
+	EgresoFirmaService: require("./Abogados/egresoFirma.service"),
 };

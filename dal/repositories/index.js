@@ -17,4 +17,5 @@ module.exports = {
 	CuotasContratoAbogadoRepository: require("./abogados/cuotasContratoAbogado.repository"),
 	EquipoRepository: require("./abogados/equipo.repository"),
 	AbogadoRepository: require("./abogados/abogado.repository"),
+	EgresoFirmaRepository: require("./abogados/egresoFirma.repository"),
 };

@@ -19,6 +19,7 @@ const CausaRoutes = require("../api/routes/Abogados/causas.routes");
 const ContratoClienteAbogadoRoutes = require("../api/routes/Abogados/contratoClienteAbogado.routes");
 const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
 const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
+const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 
 // business
 const {
@@ -33,6 +34,7 @@ const {
 	ContratoClienteAbogadoBusiness,
 	CuotasContratoAbogadoBusiness,
 	AbogadoBusiness,
+	EgresoFirmaBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -48,6 +50,7 @@ const {
 	ContratoClienteAbogadoController,
 	CuotasContratoAbogadoController,
 	AbogadoController,
+	EgresoFirmaController,
 } = require("../api/controllers");
 
 //services
@@ -65,6 +68,7 @@ const {
 	ContratoClienteAbogadoService,
 	CuotasContratoAbogadoService,
 	AbogadoService,
+	EgresoFirmaService,
 } = require("../services");
 
 //repositories
@@ -81,11 +85,13 @@ const {
 	CuotasContratoAbogadoRepository,
 	EquipoRepository,
 	AbogadoRepository,
+	EgresoFirmaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
 const db = require("../dal/models/");
 const cuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
+const egresoFirma = require("../dal/models/egresoFirma");
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -126,6 +132,8 @@ container
 		).singleton(),
 		AbogadoRoutes: asFunction(AbogadoRoutes).singleton(),
 		AbogadoController: asClass(AbogadoController).singleton(),
+		EgresoFirmaRoutes: asFunction(EgresoFirmaRoutes).singleton(),
+		EgresoFirmaController: asClass(EgresoFirmaController).singleton(),
 	})
 	.register({
 		config: asValue(config),
@@ -149,6 +157,7 @@ container
 			CuotasContratoAbogadoService
 		).singleton(),
 		AbogadoService: asClass(AbogadoService).singleton(),
+		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -167,6 +176,7 @@ container
 		).singleton(),
 		EquipoRepository: asClass(EquipoRepository).singleton(),
 		AbogadoRepository: asClass(AbogadoRepository).singleton(),
+		EgresoFirmaRepository: asClass(EgresoFirmaRepository).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -184,5 +194,6 @@ container
 			CuotasContratoAbogadoBusiness
 		).singleton(),
 		AbogadoBusiness: asClass(AbogadoBusiness).singleton(),
+		EgresoFirmaBusiness: asClass(EgresoFirmaBusiness).singleton(),
 	});
 module.exports = container;

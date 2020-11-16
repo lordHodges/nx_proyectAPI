@@ -1,14 +1,10 @@
-const { EgresoHostal } = require("../../models");
 const BaseBusiness = require("../base.business");
-const mapper = require("automapper-js");
 
-class EgresoHostalBusiness extends BaseBusiness {
-	constructor({ EgresoHostalRepository }) {
-		super(EgresoHostalRepository, EgresoHostal);
-		this._egresoRepository = EgresoHostalRepository;
-		this._egresoToMap = EgresoHostal;
+class EgresoFirmaBusiness extends BaseBusiness {
+	constructor({ EgresoFirmaRepository }) {
+		super({ EgresoFirmaRepository });
+		this._egresoRepository = EgresoFirmaRepository;
 	}
-
 	async createWithRespaldos(entity) {
 		const createdEntity = await this._egresoRepository.createWithRespaldos(
 			entity
@@ -25,4 +21,4 @@ class EgresoHostalBusiness extends BaseBusiness {
 		return egreso;
 	}
 }
-module.exports = EgresoHostalBusiness;
+module.exports = EgresoFirmaBusiness;

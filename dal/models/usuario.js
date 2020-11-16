@@ -32,6 +32,9 @@ module.exports = (sequelize, DataTypes) => {
 			Usuario.hasMany(models.ContratoClienteAbogado, {
 				foreignKey: "idUsuario",
 			});
+			Usuario.hasMany(models.EgresoFirma, {
+				foreignKey: "idUsuario",
+			});
 		}
 	}
 	Usuario.init(
