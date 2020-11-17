@@ -6,7 +6,7 @@ module.exports = function ({ CausaController }) {
 		"/crearSinoExiste/:codigo",
 		CausaController.crearCausaSinoExiste.bind(CausaController)
 	);
-	//! no descomnetar hasta tener las rutas
+
 	router.post("/", CausaController.guardarCausa.bind(CausaController));
 	router.post(
 		"/asignarEquipo",

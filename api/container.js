@@ -21,6 +21,9 @@ const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContra
 const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 
+//importar helpers
+const { RequestApiHelper } = require("../helpers");
+
 // business
 const {
 	UsuarioBusiness,
@@ -69,6 +72,7 @@ const {
 	CuotasContratoAbogadoService,
 	AbogadoService,
 	EgresoFirmaService,
+	RentacarService,
 } = require("../services");
 
 //repositories
@@ -97,6 +101,9 @@ const egresoFirma = require("../dal/models/egresoFirma");
 const container = createContainer();
 
 container
+	.register({
+		RequestApiHelper: asClass(RequestApiHelper).singleton(),
+	})
 	.register({
 		app: asClass(StartUp).singleton(),
 		router: asFunction(Routes).singleton(),
@@ -158,6 +165,7 @@ container
 		).singleton(),
 		AbogadoService: asClass(AbogadoService).singleton(),
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
+		RentacarService: asClass(RentacarService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),

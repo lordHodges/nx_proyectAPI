@@ -38,6 +38,8 @@ module.exports = function ({
 	apiRoute.use("/contratoCienteAbogado", ContratoClienteAbogadoRoutes);
 	apiRoute.use("/cuotasContrato", CuotasContratoAbogadoRoutes);
 	apiRoute.use("/abogado", AbogadoRoutes);
+	apiRoute.use("/test", AbogadoRoutes);
+
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
 
 	//!prefj

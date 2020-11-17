@@ -1,6 +1,7 @@
 class AbogadoController {
-	constructor({ AbogadoService, config }) {
+	constructor({ AbogadoService, config, RentacarService }) {
 		this._abogadoService = AbogadoService;
+		this._test = RentacarService;
 		this._config = config;
 	}
 
@@ -19,6 +20,11 @@ class AbogadoController {
 		return res.send({
 			payload: abogado,
 		});
+	}
+	//TODO quitar despues del testeo
+	async testResponse(req, res) {
+		let resp = await this._test.responder();
+		return res.status(200).send(resp);
 	}
 
 	async createAbogado(req, res) {
