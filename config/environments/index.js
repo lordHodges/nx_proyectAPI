@@ -10,14 +10,13 @@ const { NODE_ENV } = process.env;
 let currentEnv = DEVELOPMENT;
 
 if (NODE_ENV === "production") {
-  currentEnv = PRODUCTION;
+	currentEnv = PRODUCTION;
 } else if (NODE_ENV === "qa") {
-  currentEnv = QA;
+	currentEnv = QA;
 } else if (NODE_ENV === "newShema") {
-  currentEnv = NEW;
+	currentEnv = NEW;
 } else if (NODE_ENV === "newbd") {
-  currentEnv = NUEVA;
+	currentEnv = NUEVA;
 }
 
 module.exports = currentEnv;
-//TODO agregar al indice los demas entyornos de configuracion.

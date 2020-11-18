@@ -1,4 +1,4 @@
-const RespaldoEgreso = require("./respaldoEgreso");
+const respaldoEgreso = require("./respaldoEgreso");
 
 class EgresoHostal {
   id = 0;
