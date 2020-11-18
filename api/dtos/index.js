@@ -5,4 +5,5 @@ module.exports = {
   SucursalDto: require("./sucursal/sucursal.dto"),
   EgresoHostalDto: require("./Hostal/egresoHostal.dto"),
   RespaldoEgresoDto: require("./respaldoEgreso.dto"),
+  EgresoLubricentroDto: require("./Lubricentro/egresoLubricentro.dto"),
 };

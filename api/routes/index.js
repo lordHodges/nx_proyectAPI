@@ -14,6 +14,9 @@ module.exports = function ({
   SucursalRoutes,
   EgresoHostalRoutes,
   IngresoHostalRoutes,
+  IngresoLubricentroRoutes,
+  EgresoLubricentroRoutes,
+ 
 }) {
   const router = Router();
   const apiRoute = Router();
@@ -27,6 +30,9 @@ module.exports = function ({
   apiRoute.use("/auth", AuthRoutes);
   apiRoute.use("/egresoHostal", EgresoHostalRoutes);
   apiRoute.use("/ingresoHostal", IngresoHostalRoutes);
+  apiRoute.use("/ingresoLubricentro", IngresoLubricentroRoutes);
+  apiRoute.use("/egresoLubricentro", EgresoLubricentroRoutes);
+
 
   router.use("/api", apiRoute);
 

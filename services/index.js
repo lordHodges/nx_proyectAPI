@@ -7,4 +7,7 @@ module.exports = {
   FileService: require("./files.service"),
   EgresoHostalService: require("./Hostal/egresoHostal.service"),
   IngresoHostalService: require("./Hostal/ingresoHostal.service"),
+  IngresoLubricentroService: require("./Lubricentro/ingresoLubricentro.service"),
+  EgresoLubricentroService: require("./Lubricentro/egresoLubricentro.service"),
+  
 };

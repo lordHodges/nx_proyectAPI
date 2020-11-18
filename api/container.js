@@ -14,6 +14,8 @@ const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
 const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
 const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
+const IngresoLubricentroRoutes = require("../api/routes/Lubricentro/ingresoLubricentro.routes");
+const EgresoLubricentroRoutes = require("../api/routes/Lubricentro/egresoLubricentro.routes");
 
 // business
 const {
@@ -23,6 +25,9 @@ const {
   SucursalBusiness,
   EgresoHostalBusiness,
   IngresoHostalBusiness,
+  IngresoLubricentroBusiness,
+  EgresoLubricentroBusiness,
+  
 } = require("../domain/business");
 
 //controllers
@@ -33,6 +38,9 @@ const {
   SucursalController,
   EgresoHostalController,
   IngresoHostalController,
+  IngresoLubricentroController,
+  EgresoLubricentroController,
+
 } = require("../api/controllers");
 
 //services
@@ -45,6 +53,9 @@ const {
   FileService,
   EgresoHostalService,
   IngresoHostalService,
+  IngresoLubricentroService,
+  EgresoLubricentroService,
+
 } = require("../services");
 
 //repositories
@@ -55,6 +66,9 @@ const {
   SucursalRepository,
   EgresoHostalRepository,
   IngresoHostalRepository,
+  IngresoLubricentroRepository,
+  EgresoLubricentroRepository,
+
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -81,6 +95,11 @@ container
     IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
     EgresoHostalController: asClass(EgresoHostalController).singleton(),
     IngresoHostalController: asClass(IngresoHostalController).singleton(),
+    EgresoLubricentroRoutes: asFunction(EgresoLubricentroRoutes).singleton(),
+    IngresoLubricentroRoutes: asFunction(IngresoLubricentroRoutes).singleton(),
+    EgresoLubricentroController: asClass(EgresoLubricentroController).singleton(),
+    IngresoLubricentroController: asClass(IngresoLubricentroController).singleton(),
+    
   })
   .register({
     config: asValue(config),
@@ -95,6 +114,9 @@ container
     FileService: asClass(FileService).singleton(),
     EgresoHostalService: asClass(EgresoHostalService).singleton(),
     IngresoHostalService: asClass(IngresoHostalService).singleton(),
+    IngresoLubricentroService: asClass(IngresoLubricentroService).singleton(),
+    EgresoLubricentroService: asClass(EgresoLubricentroService).singleton(),
+
   })
   .register({
     UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -103,6 +125,9 @@ container
     SucursalRepository: asClass(SucursalRepository).singleton(),
     EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
     IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
+    IngresoLubricentroRepository: asClass(IngresoLubricentroRepository).singleton(),
+    EgresoLubricentroRepository: asClass(EgresoLubricentroRepository).singleton(),
+    
   })
   .register({
     UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -111,6 +136,9 @@ container
     SucursalBusiness: asClass(SucursalBusiness).singleton(),
     EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
     IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
+    IngresoLubricentroBusiness: asClass(IngresoLubricentroBusiness).singleton(),
+    EgresoLubricentroBusiness: asClass(EgresoLubricentroBusiness).singleton(),
+    
   });
 module.exports = container;
 //TODO agregar registros en container
