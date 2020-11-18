@@ -1,3 +1,5 @@
+const request = require("request");
+const fs = require("fs");
 class AbogadoController {
 	constructor({ AbogadoService, config, RentacarService }) {
 		this._abogadoService = AbogadoService;
@@ -23,7 +25,16 @@ class AbogadoController {
 	}
 	//TODO quitar despues del testeo
 	async testResponse(req, res) {
-		let resp = await this._test.responder();
+		const url =
+			"https://www.imlchile.cl:3011/rentacar/pagos/mostrarPagosFinanzas";
+		const resp = new Promise((resolve, reject) => {
+			request(url, { json: true }, (err, res, body) => {
+				if (err) reject(err);
+				resolve(body);
+			});
+		});
+
+		//let resp = await this._test.responder();
 		return res.status(200).send(resp);
 	}
 
