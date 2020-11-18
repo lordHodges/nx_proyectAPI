@@ -28,8 +28,8 @@ class Server {
 			const serv = https
 				.createServer(
 					{
-						key: fs.readFileSync("server.key"),
-						cert: fs.readFileSync("server.cert"),
+						key: fs.readFileSync("privkey4.pem"),
+						cert: fs.readFileSync("fullchain4.pem"),
 					},
 					this._express
 				)

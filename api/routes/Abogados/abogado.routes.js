@@ -6,7 +6,7 @@ module.exports = function ({ AbogadoController }) {
 		"/resolver",
 		AbogadoController.testResponse.bind(AbogadoController)
 	);
-	router.get("/test", AbogadoController.getAbogados.bind(AbogadoController));
+	router.get("/get", AbogadoController.getAbogados.bind(AbogadoController));
 
 	router.get("/:id", AbogadoController.getAbogado.bind(AbogadoController));
 
