@@ -1,12 +1,10 @@
 class RentacarService {
-	constructor({ RequestApiHelper }) {
-		this._request = RequestApiHelper;
+	constructor({ RentacarIngresosRequestBusiness }) {
+		this._rentacarService = RentacarIngresosRequestBusiness;
 	}
-	async responder() {
-		const res = await this._request.make_API_call(
-			"https://www.imlchile.cl:3011/rentacar/pagos/mostrarPagosFinanzas"
-		);
-		return res;
+	async getArriendos() {
+		const arriendos = await this._rentacarService.getArriendos();
+		return arriendos;
 	}
 }
 
