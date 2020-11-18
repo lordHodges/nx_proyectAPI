@@ -25,18 +25,7 @@ class AbogadoController {
 	}
 	//TODO quitar despues del testeo
 	async testResponse(req, res) {
-		const cert = fs.readFileSync("fullchain4.pem");
-		const key = fs.readFileSync("privkey4.pem");
-		const url =
-			"https://www.imlchile.cl:3011/rentacar/pagos/mostrarPagosFinanzas";
-		const resp = new Promise((resolve, reject) => {
-			request(url, { json: true, ca: cert, key: key }, (err, res, body) => {
-				if (err) reject(err);
-				resolve(body);
-			});
-		});
-
-		//let resp = await this._test.responder();
+		let resp = await this._test.responder();
 		return res.status(200).send(resp);
 	}
 
