@@ -14,6 +14,8 @@ const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
 const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
 const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
 const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
+const EgresoLubricentroRoutes = require("../api/routes/Lubricentro/egresoLubricentro.routes");
+const IngresoLubricentroRoutes = require("../api/routes/Lubricentro/ingresoLubricentro.routes");
 const ClienteRoutes = require("../api/routes/cliente.routes");
 const CausaRoutes = require("../api/routes/Abogados/causas.routes");
 const ContratoClienteAbogadoRoutes = require("../api/routes/Abogados/contratoClienteAbogado.routes");
@@ -33,6 +35,8 @@ const {
 	SucursalBusiness,
 	EgresoHostalBusiness,
 	IngresoHostalBusiness,
+	EgresoLubricentroBusiness,
+	IngresoLubricentroBusiness,
 	ClienteBusiness,
 	CausaBusiness,
 	ContratoClienteAbogadoBusiness,
@@ -50,6 +54,8 @@ const {
 	SucursalController,
 	EgresoHostalController,
 	IngresoHostalController,
+	EgresoLubricentroController,
+	IngresoLubricentroController,
 	ClienteController,
 	CausaController,
 	ContratoClienteAbogadoController,
@@ -69,6 +75,8 @@ const {
 	FileService,
 	EgresoHostalService,
 	IngresoHostalService,
+	EgresoLubricentroService,
+	IngresoLubricentroService,
 	ClienteService,
 	CausaService,
 	ContratoClienteAbogadoService,
@@ -86,6 +94,8 @@ const {
 	SucursalRepository,
 	EgresoHostalRepository,
 	IngresoHostalRepository,
+	EgresoLubricentroRepository,
+	IngresoLubricentroRepository,
 	ClienteRepository,
 	CausaRepository,
 	ContratoClienteAbogadoRepository,
@@ -125,6 +135,14 @@ container
 		IngresoHostalRoutes: asFunction(IngresoHostalRoutes).singleton(),
 		EgresoHostalController: asClass(EgresoHostalController).singleton(),
 		IngresoHostalController: asClass(IngresoHostalController).singleton(),
+		EgresoLubricentroRoutes: asFunction(EgresoLubricentroRoutes).singleton(),
+		IngresoLubricentroRoutes: asFunction(IngresoLubricentroRoutes).singleton(),
+		EgresoLubricentroController: asClass(
+			EgresoLubricentroController
+		).singleton(),
+		IngresoLubricentroController: asClass(
+			IngresoLubricentroController
+		).singleton(),
 		ClienteController: asClass(ClienteController).singleton(),
 		ClienteRoutes: asFunction(ClienteRoutes).singleton(),
 		CausaRoutes: asFunction(CausaRoutes).singleton(),
@@ -161,6 +179,8 @@ container
 		FileService: asClass(FileService).singleton(),
 		EgresoHostalService: asClass(EgresoHostalService).singleton(),
 		IngresoHostalService: asClass(IngresoHostalService).singleton(),
+		EgresoLubricentroService: asClass(EgresoLubricentroService).singleton(),
+		IngresoLubricentroService: asClass(IngresoLubricentroService).singleton(),
 		ClienteService: asClass(ClienteService).singleton(),
 		CausaService: asClass(CausaService).singleton(),
 		ContratoClienteAbogadoService: asClass(
@@ -180,6 +200,12 @@ container
 		SucursalRepository: asClass(SucursalRepository).singleton(),
 		EgresoHostalRepository: asClass(EgresoHostalRepository).singleton(),
 		IngresoHostalRepository: asClass(IngresoHostalRepository).singleton(),
+		EgresoLubricentroRepository: asClass(
+			EgresoLubricentroRepository
+		).singleton(),
+		IngresoLubricentroRepository: asClass(
+			IngresoLubricentroRepository
+		).singleton(),
 		ClienteRepository: asClass(ClienteRepository).singleton(),
 		CausaRepository: asClass(CausaRepository).singleton(),
 		ContratoClienteAbogadoRepository: asClass(
@@ -202,6 +228,8 @@ container
 		SucursalBusiness: asClass(SucursalBusiness).singleton(),
 		EgresoHostalBusiness: asClass(EgresoHostalBusiness).singleton(),
 		IngresoHostalBusiness: asClass(IngresoHostalBusiness).singleton(),
+		EgresoLubricentroBusiness: asClass(EgresoLubricentroBusiness).singleton(),
+		IngresoLubricentroBusiness: asClass(IngresoLubricentroBusiness).singleton(),
 		ClienteBusiness: asClass(ClienteBusiness).singleton(),
 		CausaBusiness: asClass(CausaBusiness).singleton(),
 		ContratoClienteAbogadoBusiness: asClass(

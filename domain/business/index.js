@@ -5,6 +5,8 @@ module.exports = {
 	SucursalBusiness: require("./administracion/sucursal.business"),
 	EgresoHostalBusiness: require("./hostal/egresoHostal.business"),
 	IngresoHostalBusiness: require("./hostal/ingresoHostal.business"),
+	EgresoLubricentroBusiness: require("./lubricentro/egresoLubricentro.business"),
+	IngresoLubricentroBusiness: require("./lubricentro/ingresoLubricentro.business"),
 	ClienteBusiness: require("./administracion/cliente.business"),
 	CausaBusiness: require("./abogados/causa.business"),
 	ContratoClienteAbogadoBusiness: require("./abogados/contratoClienteAbogado.business"),

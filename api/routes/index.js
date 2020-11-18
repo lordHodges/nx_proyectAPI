@@ -14,6 +14,8 @@ module.exports = function ({
 	SucursalRoutes,
 	EgresoHostalRoutes,
 	IngresoHostalRoutes,
+	EgresoLubricentroRoutes,
+	IngresoLubricentroRoutes,
 	ClienteRoutes,
 	CausaRoutes,
 	ContratoClienteAbogadoRoutes,
@@ -34,6 +36,8 @@ module.exports = function ({
 	apiRoute.use("/auth", AuthRoutes);
 	apiRoute.use("/egresoHostal", EgresoHostalRoutes);
 	apiRoute.use("/ingresoHostal", IngresoHostalRoutes);
+	apiRoute.use("/egresoLubricentro", EgresoLubricentroRoutes);
+	apiRoute.use("/ingresoLubricentro", IngresoLubricentroRoutes);
 	apiRoute.use("/cliente", ClienteRoutes);
 	apiRoute.use("/causa", CausaRoutes);
 	apiRoute.use("/contratoCienteAbogado", ContratoClienteAbogadoRoutes);
