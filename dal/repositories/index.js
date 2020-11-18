@@ -22,5 +22,4 @@ module.exports = {
 	EquipoRepository: require("./abogados/equipo.repository"),
 	AbogadoRepository: require("./abogados/abogado.repository"),
 	EgresoFirmaRepository: require("./abogados/egresoFirma.repository"),
-	RentacarIngresosRequestRepository: require("./rentacar/rentacarIngresosRequest.repository"),
 };

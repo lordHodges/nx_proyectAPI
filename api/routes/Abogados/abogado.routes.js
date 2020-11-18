@@ -2,8 +2,11 @@ const { Router } = require("express");
 
 module.exports = function ({ AbogadoController }) {
 	const router = Router();
-
-	router.get("/", AbogadoController.getAbogados.bind(AbogadoController));
+	router.get(
+		"/resolver",
+		AbogadoController.testResponse.bind(AbogadoController)
+	);
+	router.get("/get", AbogadoController.getAbogados.bind(AbogadoController));
 
 	router.get("/:id", AbogadoController.getAbogado.bind(AbogadoController));
 
