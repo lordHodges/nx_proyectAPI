@@ -13,18 +13,37 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 		return arriendosEstado;
 	}
 
+	async getDetallePagos(idArriendo) {}
+
 	///
-	//!manipulando el objeto 13
+	//!manipulando el objeto <3
 	//?,metodo para injectar variable con el valor total del arriendo.
-	async getTotalArriendo() {}
+	async getTotalArriendo(arriendos) {
+		//el total pago incluye iva;
+		let totalArriendo = 0;
+		arriendos["data"].forEach((arriendo) => {
+			arriendo["pagosArriendo"].forEach((pagoArriendo) => {
+				pagoArriendo["pagos"].forEach((pago) => {
+					totalArriendo += pago["total_pago"];
+				});
+			});
+			arriendo["totalArriendo"] = totalArriendo;
+			totalArriendo = 0;
+		});
+		return arriendos;
+	}
 
 	//?,metodo para injectar variable con el valor de estado pago del arriendo.
 	async getEstadoPago(arriendos) {
 		let count = 0;
+		let totalArriendo = 0;
 
 		arriendos["data"].forEach((arriendo) => {
 			arriendo["pagosArriendos"].forEach((pagoArriendo) => {
 				pagoArriendo["pagos"].forEach((pago) => {
+					//definiendo total PAgo Let;
+					totalArriendo += pago["total_pago"];
+					//definiendo estadoPago Arriendo let
 					if (pago["estado_pago"] == "PENDIENTE") {
 						count++;
 					}
@@ -35,6 +54,10 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 			} else {
 				arriendo["estado_pago"] = "PAGADO";
 			}
+
+			arriendo["totalArriendo"] = totalArriendo;
+			totalArriendo = 0;
+
 			count = 0;
 		});
 		return arriendos;

@@ -48,8 +48,8 @@ module.exports = function ({ EgresoLubricentroController }) {
 
 	app.use("/api/egresoLubricentro/download", express.static(DIR));
 	router.get("/download/*", function (req, res) {
-		filename = req.params[0];
-		filepath =
+		let filename = req.params[0];
+		let filepath =
 			path.join(__dirname, "../../../../uploads") +
 			"/egresoLubricentro/" +
 			filename;
