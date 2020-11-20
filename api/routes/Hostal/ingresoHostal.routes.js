@@ -5,7 +5,7 @@ var express = require("express");
 var app = express();
 const path = require("path");
 
-var DIR = "./uploads/ingresoHostal";
+var DIR = "../uploads/ingresoHostal";
 express.static(DIR);
 let storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -50,7 +50,9 @@ module.exports = function ({ IngresoHostalController }) {
 	router.get("/download/*", function (req, res) {
 		let filename = req.params[0];
 		let filepath =
-			path.join(__dirname, "../../../uploads") + "/ingresoHostal/" + filename;
+			path.join(__dirname, "../../../../uploads") +
+			"/ingresoHostal/" +
+			filename;
 
 		return res.sendFile(filepath);
 	});
