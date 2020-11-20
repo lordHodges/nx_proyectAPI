@@ -17,7 +17,6 @@ class EmpresaController {
 		if (!empresa) {
 			return res.status(404).send();
 		}
-		empresa = mapper(EmpresaDto, empresa);
 		return res.send(empresa);
 	}
 	async getEmpresaConSucursales(req, res) {
@@ -26,7 +25,6 @@ class EmpresaController {
 		if (!empresa) {
 			return res.status(404).send();
 		}
-		empresa = mapper(EmpresaDto, empresa);
 		return res.send(empresa);
 	}
 
