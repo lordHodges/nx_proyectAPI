@@ -11,6 +11,10 @@ module.exports = {
 	EgresoHostalRepository: require("./hostal/egresoHostal.repository"),
 	IngresoHostalRepository: require("./hostal/ingresoHostal.repository"),
 
+	//?lubricentro
+	EgresoLubricentroRepository: require("./lubricentro/egresoLubricentro.repository"),
+	IngresoLubricentroRepository: require("./lubricentro/ingresoLubricentro.repository"),
+
 	//?abogados
 	CausaRepository: require("./abogados/causa.repository"),
 	ContratoClienteAbogadoRepository: require("./abogados/constratoClienteAbogado.repository"),
