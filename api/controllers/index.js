@@ -13,4 +13,5 @@ module.exports = {
 	CuotasContratoAbogadoController: require("./Abogados/cuotasContratoAbogado.controller"),
 	AbogadoController: require("./Abogados/abogado.controller.js"),
 	EgresoFirmaController: require("./Abogados/egresoFirma.controller"),
+	IngresoRentacarController: require("./Rentacar/ingresoRentacar.controller"),
 };

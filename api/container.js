@@ -22,6 +22,7 @@ const ContratoClienteAbogadoRoutes = require("../api/routes/Abogados/contratoCli
 const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
 const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
+const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
@@ -42,6 +43,7 @@ const {
 	CuotasContratoAbogadoBusiness,
 	AbogadoBusiness,
 	EgresoFirmaBusiness,
+	RentacarIngresosRequestBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -60,6 +62,7 @@ const {
 	CuotasContratoAbogadoController,
 	AbogadoController,
 	EgresoFirmaController,
+	IngresoRentacarController,
 } = require("../api/controllers");
 
 //services
@@ -100,6 +103,7 @@ const {
 	EquipoRepository,
 	AbogadoRepository,
 	EgresoFirmaRepository,
+	RentacarIngresosRequestRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -159,6 +163,8 @@ container
 		AbogadoController: asClass(AbogadoController).singleton(),
 		EgresoFirmaRoutes: asFunction(EgresoFirmaRoutes).singleton(),
 		EgresoFirmaController: asClass(EgresoFirmaController).singleton(),
+		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
+		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
 	})
 	.register({
 		config: asValue(config),
@@ -211,6 +217,9 @@ container
 		EquipoRepository: asClass(EquipoRepository).singleton(),
 		AbogadoRepository: asClass(AbogadoRepository).singleton(),
 		EgresoFirmaRepository: asClass(EgresoFirmaRepository).singleton(),
+		RentacarIngresosRequestRepository: asClass(
+			RentacarIngresosRequestRepository
+		).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -231,5 +240,8 @@ container
 		).singleton(),
 		AbogadoBusiness: asClass(AbogadoBusiness).singleton(),
 		EgresoFirmaBusiness: asClass(EgresoFirmaBusiness).singleton(),
+		RentacarIngresosRequestBusiness: asClass(
+			RentacarIngresosRequestBusiness
+		).singleton(),
 	});
 module.exports = container;

@@ -22,6 +22,7 @@ module.exports = function ({
 	CuotasContratoAbogadoRoutes,
 	AbogadoRoutes,
 	EgresoFirmaRoutes,
+	IngresoRentacarRoutes,
 }) {
 	const router = Router();
 	const apiRoute = Router();
@@ -42,7 +43,7 @@ module.exports = function ({
 	apiRoute.use("/contratoCienteAbogado", ContratoClienteAbogadoRoutes);
 	apiRoute.use("/cuotasContrato", CuotasContratoAbogadoRoutes);
 	apiRoute.use("/abogado", AbogadoRoutes);
-	apiRoute.use("/test", AbogadoRoutes);
+	apiRoute.use("/rentacar", IngresoRentacarRoutes);
 
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
 
