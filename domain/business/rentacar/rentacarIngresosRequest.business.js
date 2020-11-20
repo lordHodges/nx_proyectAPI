@@ -13,7 +13,32 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 		return arriendosEstado;
 	}
 
-	async getDetallePagos(idArriendo) {}
+	async getDetallePagos(idArriendo) {
+		const arriendos = await this.getArriendos();
+		let arriendoO = {};
+		let pagosArriendos = [];
+		let detalle = {};
+		arriendos["data"].forEach((arriendo) => {
+			if (arriendo["id_arriendo"] == idArriendo) {
+				//arriendoO = arriendo;
+				arriendo["pagosArriendos"].forEach((pagoArriendo) => {
+					detalle["idPago"] = pagoArriendo["id_pagoArriendo"];
+					if (pagoArriendo["pagos"].length > 1) {
+						detalle["cliente"] = pagoArriendo["pagos"][0];
+						detalle["remplazo"] = pagoArriendo["pagos"][1];
+					}
+					if (pagoArriendo["pagos"].length == 1) {
+						detalle["cliente"] = pagoArriendo["pagos"][0];
+					}
+
+					detalle["idPago"] = pagoArriendo["id_pagoArriendo"];
+					pagosArriendos.push(detalle);
+				});
+			}
+		});
+
+		return pagosArriendos;
+	}
 
 	///
 	//!manipulando el objeto <3
