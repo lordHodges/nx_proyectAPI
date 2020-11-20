@@ -7,8 +7,8 @@ class EmpresaController {
 	}
 	async getEmpresasConSucursales(req, res) {
 		let empresas = await this._empresaService.getAllWithSucursal();
-		empresas = empresas.map((x) => mapper(EmpresaDto, x));
-		return res.send(empresas);
+
+		return res.status(200).send({ cantidadEmpresas: empresas });
 	}
 
 	async getEmpresa(req, res) {

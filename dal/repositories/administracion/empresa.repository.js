@@ -8,7 +8,23 @@ class EmpresaRepository extends BaseRepository {
 	}
 	getAllWithSucursal() {
 		return this._db[this.empresa].findAll({
-			include: [{ model: this._db.Sucursal }],
+			/* attributes: [
+				"razonSocial",
+				[
+					this._db.sequelize.fn(
+						"count",
+						this._db.sequelize.col("Sucursals.idEmpresa")
+					),
+					"cantidad Sucursales",
+				],
+			], */
+			include: [
+				{
+					model: this._db.Sucursal,
+				},
+			],
+			/* group: ["Sucursals.idEmpresa"],
+			raw: true, */
 		});
 	}
 	getOneWithSucursal(id) {

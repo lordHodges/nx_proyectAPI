@@ -11,7 +11,7 @@ class EmpresaBusiness extends BaseBusiness {
 	}
 	async getAllWithSucursal() {
 		const empresas = await this._empresaRepository.getAllWithSucursal();
-		return empresas.map((empresa) => mapper(this.empresa, empresa.toJSON()));
+		return empresas;
 	}
 	async getOneWithSucursal(id) {
 		const empresa = await this._empresaRepository.getOneWithSucursal(id);
