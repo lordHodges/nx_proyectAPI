@@ -15,29 +15,39 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 
 	async getDetallePagos(idArriendo) {
 		const arriendos = await this.getArriendos();
-		let arriendoO = {};
+		let respuesta = {};
+		let totales = {};
 		let pagosArriendos = [];
 		let detalle = {};
+		let pagoCliente = 0;
+		let pagoRemplazo = 0;
 		arriendos["data"].forEach((arriendo) => {
 			if (arriendo["id_arriendo"] == idArriendo) {
-				//arriendoO = arriendo;
 				arriendo["pagosArriendos"].forEach((pagoArriendo) => {
+					detalle = {};
+
 					detalle["idPago"] = pagoArriendo["id_pagoArriendo"];
 					if (pagoArriendo["pagos"].length > 1) {
+						pagoCliente += pagoArriendo["pagos"][0]["total_pago"];
+						pagoRemplazo += pagoArriendo["pagos"][1]["total_pago"];
 						detalle["cliente"] = pagoArriendo["pagos"][0];
 						detalle["remplazo"] = pagoArriendo["pagos"][1];
 					}
 					if (pagoArriendo["pagos"].length == 1) {
+						pagoCliente += pagoArriendo["pagos"][0]["total_pago"];
 						detalle["cliente"] = pagoArriendo["pagos"][0];
 					}
 
-					detalle["idPago"] = pagoArriendo["id_pagoArriendo"];
 					pagosArriendos.push(detalle);
 				});
+
+				totales.totalCliente = pagoCliente;
+				totales.totalRemplazo = pagoRemplazo;
 			}
 		});
+		respuesta = { totales, pagosArriendos };
 
-		return pagosArriendos;
+		return respuesta;
 	}
 
 	///
