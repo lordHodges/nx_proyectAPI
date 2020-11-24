@@ -29,13 +29,14 @@ IngresoLubricentro.init(
         telefono:DataTypes.STRING,
         correo:DataTypes.STRING,
         tipoVehiculo:DataTypes.STRING,
+        referenciaCliente:DataTypes.STRING,
         ppu:DataTypes.STRING,
         marca:DataTypes.STRING,
         modelo:DataTypes.STRING,
         nAutorizacion:DataTypes.STRING,
         anio:DataTypes.INTEGER,
         kmActual:DataTypes.INTEGER,
-        kmProximo:DataTypes.INTEGER,
+        kmProximo:DataTypes.STRING,
         //
     },
     {
