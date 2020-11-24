@@ -17,7 +17,8 @@ class IngresoLubricentro {
   anio = 0;
   nAutorizacion = null;
   kmActual = 0;
-  kmProximo = 0;
+  kmProximo = null;
+  referenciaCliente = null;
   idSucursal = 0;
   idUsuario = 0;
   respaldoEgresoLubricentro = [ResoaldoIngreso];

@@ -50,9 +50,7 @@ module.exports = function ({ EgresoLubricentroController }) {
 	router.get("/download/*", function (req, res) {
 		filename = req.params[0];
 		filepath =
-			path.join(__dirname, "../../../../uploads") +
-			"/egresoLubricentro/" +
-			filename;
+			path.join(__dirname, "../../../../uploads") + "/egresoLubricentro/" + filename;
 
 		return res.sendFile(filepath);
 	});
