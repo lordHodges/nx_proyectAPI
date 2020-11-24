@@ -7,4 +7,5 @@ module.exports = {
 	egresoLubricentro: require("./egresoLubricentro"),
 	RespaldoEgreso: require("./respaldoEgreso"),
 	EquipoAbogado: require("./equipoAbogado"),
+	DetallePagoArriendo: require('./rentacar/detallePagoArriendo')
 };

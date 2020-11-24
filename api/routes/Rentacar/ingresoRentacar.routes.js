@@ -7,6 +7,10 @@ module.exports = function ({ IngresoRentacarController }) {
 		"/arriendos",
 		IngresoRentacarController.getArriendos.bind(IngresoRentacarController)
 	);
+	router.get(
+		"/detallePago/:idArriendo",
+		IngresoRentacarController.getDetallePagos.bind(IngresoRentacarController)
+	);
 
 	return router;
 };
