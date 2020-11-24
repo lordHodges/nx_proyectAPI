@@ -5,6 +5,18 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 		super(db, "ContratoClienteAbogado");
 		this._db = db;
 	}
+	async getContratos() {
+		const contratos = await this._db.ContratoClienteAbogado.findAll({
+			include: [
+				{ model: this._db.Cliente },
+				{ model: this._db.Causa },
+				{ model: this._db.Sucursal },
+				{ model: this._db.Usuario },
+			],
+			raw: false,
+		});
+		return contratos;
+	}
 	async buscarPorNumero(nContrato) {
 		const contratoEncontrado = await this._db.ContratoClienteAbogado.findOne({
 			where: { nContrato: nContrato },

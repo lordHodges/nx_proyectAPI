@@ -2,6 +2,10 @@ class ContratoClienteAbogadoController {
 	constructor({ ContratoClienteAbogadoService }) {
 		this._contratoService = ContratoClienteAbogadoService;
 	}
+	async getContratos(req, res) {
+		const constratos = await this._contratoService.getContratos();
+		return res.status(200).send(constratos);
+	}
 	async crearContratoSinoExiste(req, res) {
 		const { body } = req;
 		const [

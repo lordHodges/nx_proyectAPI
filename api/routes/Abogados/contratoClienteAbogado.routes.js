@@ -14,6 +14,12 @@ module.exports = function ({ ContratoClienteAbogadoController }) {
 			ContratoClienteAbogadoController
 		)
 	);
+	router.get(
+		"/getContratos",
+		ContratoClienteAbogadoController.getContratos.bind(
+			ContratoClienteAbogadoController
+		)
+	);
 
 	router.get(
 		"/contratosCliente/:idCliente",

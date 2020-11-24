@@ -5,6 +5,10 @@ class ContratoClienteAbogadoService extends BaseService {
 		super(ContratoClienteAbogadoBusiness);
 		this._contratoBusiness = ContratoClienteAbogadoBusiness;
 	}
+	async getContratos() {
+		const contratos = await this._contratoBusiness.getContratos();
+		return contratos;
+	}
 	async crearContratoSinoExiste(contrato) {
 		const [
 			respuesta,

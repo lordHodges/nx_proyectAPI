@@ -19,5 +19,9 @@ class ClienteController {
 		await this._clienteService.guardarCliente(rut, body);
 		return res.status(204).send();
 	}
+	async getClientes(req, res) {
+		const clientes = await this._clienteService.getAll();
+		return res.status(200).send(clientes);
+	}
 }
 module.exports = ClienteController;
