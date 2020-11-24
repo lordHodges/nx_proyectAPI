@@ -6,6 +6,19 @@ class ContratoClienteAbogadoBusiness extends BaseBusiness {
 		this._contratoRepository = ContratoClienteAbogadoRepository;
 		this._causaBusiness = CausaBusiness;
 	}
+	//requiere todos los contratos
+	async getContratos() {
+		const contratos = await this._contratoRepository.getContratos();
+
+		contratos.forEach((contrato) => {
+			contrato["dataValues"]["cliente"] = contrato["Cliente"]["nombre"];
+			contrato["dataValues"]["clienteRut"] = contrato["Cliente"]["rut"];
+			contrato["dataValues"]["sucursal"] = contrato["Sucursal"]["razonSocial"];
+			contrato["dataValues"]["usuario"] = contrato["Usuario"]["nombre"];
+		});
+
+		return contratos;
+	}
 
 	//guarda un contrato si no existe, si existe devuielve existente,
 	async crearContratoSinoExiste(contrato) {
