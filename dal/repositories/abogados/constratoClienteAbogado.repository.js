@@ -35,7 +35,7 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 		});
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._db.ContratoClienteAbogado.findOne({
 			include: [
 				{ model: this._db.Cliente },
@@ -44,7 +44,7 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 				{ model: this._db.Usuario },
 				{ model: this._db.CuotasContrato },
 			],
-			where: { nContrato: nContrato },
+			where: { id: idContrato },
 		});
 		return contratos;
 	}

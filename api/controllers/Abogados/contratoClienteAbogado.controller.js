@@ -33,9 +33,9 @@ class ContratoClienteAbogadoController {
 		return res.status(200).send(contratosCliente);
 	}
 	async obtenerContratosPorNumero(req, res) {
-		const { nContrato } = req.params;
+		const { idContrato } = req.params;
 		const contratosCliente = await this._contratoService.obtenerContratosPorNumero(
-			nContrato
+			idContrato
 		);
 		return res.status(200).send(contratosCliente);
 	}

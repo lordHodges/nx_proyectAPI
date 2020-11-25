@@ -23,18 +23,10 @@ class ContratoClienteAbogadoBusiness extends BaseBusiness {
 	//guarda un contrato si no existe, si existe devuielve existente,
 	async crearContratoSinoExiste(contrato) {
 		let respuesta;
-		const contratoEncontrado = await this._contratoRepository.buscarPorNumero(
-			contrato.nContrato
-		);
-		if (contratoEncontrado) {
-			respuesta = "contrato ya existe en sistema";
 
-			return [respuesta, contratoEncontrado];
-		} else {
-			respuesta = "constrato Creado Con Exito";
-			const contratoCreado = await this._contratoRepository.create(contrato);
-			return [respuesta, contratoCreado];
-		}
+		respuesta = "contrato Creado Con Exito";
+		const contratoCreado = await this._contratoRepository.create(contrato);
+		return [respuesta, contratoCreado];
 	}
 	//guarda un listado de causas de un contrato
 	async agregarCausasAContrato(arrayCausas) {
@@ -51,9 +43,9 @@ class ContratoClienteAbogadoBusiness extends BaseBusiness {
 		);
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._contratoRepository.obtenerContratosPorNumero(
-			nContrato
+			idContrato
 		);
 		return contratos;
 	}

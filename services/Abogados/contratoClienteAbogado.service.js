@@ -29,9 +29,9 @@ class ContratoClienteAbogadoService extends BaseService {
 		);
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._contratoBusiness.obtenerContratosPorNumero(
-			nContrato
+			idContrato
 		);
 		return contratos;
 	}
