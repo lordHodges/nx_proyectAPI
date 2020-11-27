@@ -16,4 +16,5 @@ module.exports = {
 	RentacarService: require("./Rentacar/ingresosRentacar.service"),
 	EgresoLubricentroService: require("./Lubricentro/egresoLubricentro.service"),
 	IngresoLubricentroService: require("./Lubricentro/ingresoLubricentro.service"),
+
 };

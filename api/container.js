@@ -24,6 +24,7 @@ const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 
+
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
 
@@ -44,6 +45,7 @@ const {
 	AbogadoBusiness,
 	EgresoFirmaBusiness,
 	RentacarIngresosRequestBusiness,
+
 } = require("../domain/business");
 
 //controllers
@@ -63,6 +65,7 @@ const {
 	AbogadoController,
 	EgresoFirmaController,
 	IngresoRentacarController,
+
 } = require("../api/controllers");
 
 //services
@@ -84,6 +87,7 @@ const {
 	AbogadoService,
 	EgresoFirmaService,
 	RentacarService,
+
 } = require("../services");
 
 //repositories
@@ -104,6 +108,7 @@ const {
 	AbogadoRepository,
 	EgresoFirmaRepository,
 	RentacarIngresosRequestRepository,
+
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -165,6 +170,7 @@ container
 		EgresoFirmaController: asClass(EgresoFirmaController).singleton(),
 		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
 		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
+
 	})
 	.register({
 		config: asValue(config),
@@ -192,6 +198,7 @@ container
 		AbogadoService: asClass(AbogadoService).singleton(),
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 		RentacarService: asClass(RentacarService).singleton(),
+
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -220,6 +227,7 @@ container
 		RentacarIngresosRequestRepository: asClass(
 			RentacarIngresosRequestRepository
 		).singleton(),
+
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -243,5 +251,6 @@ container
 		RentacarIngresosRequestBusiness: asClass(
 			RentacarIngresosRequestBusiness
 		).singleton(),
+
 	});
 module.exports = container;
