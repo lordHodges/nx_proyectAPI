@@ -6,22 +6,27 @@ class ContratoClienteAbogadoBusiness extends BaseBusiness {
 		this._contratoRepository = ContratoClienteAbogadoRepository;
 		this._causaBusiness = CausaBusiness;
 	}
+	//requiere todos los contratos
+	async getContratos() {
+		const contratos = await this._contratoRepository.getContratos();
+
+		contratos.forEach((contrato) => {
+			contrato["dataValues"]["cliente"] = contrato["Cliente"]["nombre"];
+			contrato["dataValues"]["clienteRut"] = contrato["Cliente"]["rut"];
+			contrato["dataValues"]["sucursal"] = contrato["Sucursal"]["razonSocial"];
+			contrato["dataValues"]["usuario"] = contrato["Usuario"]["nombre"];
+		});
+
+		return contratos;
+	}
 
 	//guarda un contrato si no existe, si existe devuielve existente,
 	async crearContratoSinoExiste(contrato) {
 		let respuesta;
-		const contratoEncontrado = await this._contratoRepository.buscarPorNumero(
-			contrato.nContrato
-		);
-		if (contratoEncontrado) {
-			respuesta = "contrato ya existe en sistema";
 
-			return [respuesta, contratoEncontrado];
-		} else {
-			respuesta = "constrato Creado Con Exito";
-			const contratoCreado = await this._contratoRepository.create(contrato);
-			return [respuesta, contratoCreado];
-		}
+		respuesta = "contrato Creado Con Exito";
+		const contratoCreado = await this._contratoRepository.create(contrato);
+		return [respuesta, contratoCreado];
 	}
 	//guarda un listado de causas de un contrato
 	async agregarCausasAContrato(arrayCausas) {
@@ -38,9 +43,9 @@ class ContratoClienteAbogadoBusiness extends BaseBusiness {
 		);
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._contratoRepository.obtenerContratosPorNumero(
-			nContrato
+			idContrato
 		);
 		return contratos;
 	}

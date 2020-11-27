@@ -5,6 +5,10 @@ class ContratoClienteAbogadoService extends BaseService {
 		super(ContratoClienteAbogadoBusiness);
 		this._contratoBusiness = ContratoClienteAbogadoBusiness;
 	}
+	async getContratos() {
+		const contratos = await this._contratoBusiness.getContratos();
+		return contratos;
+	}
 	async crearContratoSinoExiste(contrato) {
 		const [
 			respuesta,
@@ -25,9 +29,9 @@ class ContratoClienteAbogadoService extends BaseService {
 		);
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._contratoBusiness.obtenerContratosPorNumero(
-			nContrato
+			idContrato
 		);
 		return contratos;
 	}

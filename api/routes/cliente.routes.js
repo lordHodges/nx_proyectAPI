@@ -8,6 +8,10 @@ module.exports = function ({ ClienteController }) {
 		ClienteController.crearClienteSinoExiste.bind(ClienteController)
 	);
 	router.put("/:rut", ClienteController.guardarCliente.bind(ClienteController));
+	router.get(
+		"/getClientes",
+		ClienteController.getClientes.bind(ClienteController)
+	);
 
 	return router;
 };

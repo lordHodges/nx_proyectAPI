@@ -5,6 +5,18 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 		super(db, "ContratoClienteAbogado");
 		this._db = db;
 	}
+	async getContratos() {
+		const contratos = await this._db.ContratoClienteAbogado.findAll({
+			include: [
+				{ model: this._db.Cliente },
+				{ model: this._db.Causa },
+				{ model: this._db.Sucursal },
+				{ model: this._db.Usuario },
+			],
+			raw: false,
+		});
+		return contratos;
+	}
 	async buscarPorNumero(nContrato) {
 		const contratoEncontrado = await this._db.ContratoClienteAbogado.findOne({
 			where: { nContrato: nContrato },
@@ -23,7 +35,7 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 		});
 		return contratos;
 	}
-	async obtenerContratosPorNumero(nContrato) {
+	async obtenerContratosPorNumero(idContrato) {
 		const contratos = await this._db.ContratoClienteAbogado.findOne({
 			include: [
 				{ model: this._db.Cliente },
@@ -32,7 +44,7 @@ class ContratoClienteAbogadoRepository extends BaseRepository {
 				{ model: this._db.Usuario },
 				{ model: this._db.CuotasContrato },
 			],
-			where: { nContrato: nContrato },
+			where: { id: idContrato },
 		});
 		return contratos;
 	}
