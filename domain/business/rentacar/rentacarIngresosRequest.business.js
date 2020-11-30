@@ -3,14 +3,18 @@ const BaseBusiness = require("../base.business");
 class RentacarIngresosRequestBusiness extends BaseBusiness {
 	constructor({ RentacarIngresosRequestRepository }) {
 		super(RentacarIngresosRequestRepository);
-		this._rentacarService = RentacarIngresosRequestRepository;
+		this._repository = RentacarIngresosRequestRepository;
 	}
 	async getArriendos() {
-		const arriendos = await this._rentacarService.getArriendos();
+		const arriendos = await this._repository.getArriendos();
 
 		const arriendosEstado = await this.getEstadoPago(arriendos);
 
 		return arriendosEstado;
+	}
+	async getArriendo(idArriendo) {
+		const arriendo = await this._repository.getArriendo(idArriendo);
+		return arriendo;
 	}
 
 	async getDetallePagos(idArriendo) {

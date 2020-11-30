@@ -14,4 +14,5 @@ module.exports = {
 	AbogadoBusiness: require("./abogados/abogado.business"),
 	EgresoFirmaBusiness: require("./abogados/egresoFirma.business"),
 	RentacarIngresosRequestBusiness: require("./rentacar/rentacarIngresosRequest.business.js"),
+	EgresoRentacarBusiness: require("./rentacar/egresoRentacar.business"),
 };
