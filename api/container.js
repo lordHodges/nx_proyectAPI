@@ -24,6 +24,7 @@ const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
+const BancoRoutes = require("../api/routes/banco.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
@@ -46,10 +47,12 @@ const {
 	EgresoFirmaBusiness,
 	RentacarIngresosRequestBusiness,
 	EgresoRentacarBusiness,
+	BancoBusiness,
 } = require("../domain/business");
 
 //controllers
 const {
+	BancoController,
 	UsuarioController,
 	RolController,
 	EmpresaController,
@@ -70,6 +73,7 @@ const {
 
 //services
 const {
+	BancoService,
 	UsuarioService,
 	RolService,
 	VerificarToken,
@@ -92,6 +96,7 @@ const {
 
 //repositories
 const {
+	BancoRepository,
 	UsuarioRepository,
 	RolRepository,
 	EmpresaRepository,
@@ -113,6 +118,7 @@ const {
 
 //ENLACE A BD
 const db = require("../dal/models/");
+const bancoRoutes = require("../api/routes/banco.routes");
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -170,6 +176,8 @@ container
 		EgresoRentacarRoutes: asFunction(EgresoRentacarRoutes).singleton(),
 		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
 		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
+		BancoRoutes: asFunction(bancoRoutes).singleton(),
+		BancoController: asClass(BancoController).singleton(),
 	})
 
 	.register({
@@ -199,6 +207,7 @@ container
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 		RentacarService: asClass(RentacarService).singleton(),
 		EgresoRentacarService: asClass(EgresoRentacarService).singleton(),
+		BancoService: asClass(BancoService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -228,6 +237,7 @@ container
 			RentacarIngresosRequestRepository
 		).singleton(),
 		EgresoRentacarRepository: asClass(EgresoRentacarRepository).singleton(),
+		BancoRepository: asClass(BancoRepository).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -252,5 +262,6 @@ container
 			RentacarIngresosRequestBusiness
 		).singleton(),
 		EgresoRentacarBusiness: asClass(EgresoRentacarBusiness).singleton(),
+		BancoBusiness: asClass(BancoBusiness).singleton(),
 	});
 module.exports = container;

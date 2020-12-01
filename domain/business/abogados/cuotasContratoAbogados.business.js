@@ -1,5 +1,5 @@
 const BaseBusiness = require("../base.business");
-const CuotaContrato = require("../../models/cuotaContrato");
+const { CuotaContrato } = require("../../models/");
 const moment = require("moment");
 class CuotasContratoAbogadoBusiness extends BaseBusiness {
 	constructor({
