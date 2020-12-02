@@ -23,6 +23,7 @@ module.exports = function ({
 	AbogadoRoutes,
 	EgresoFirmaRoutes,
 	IngresoRentacarRoutes,
+	CostoLubricentroRoutes,
 	
 }) {
 	const router = Router();
@@ -47,6 +48,7 @@ module.exports = function ({
 	apiRoute.use("/rentacar", IngresoRentacarRoutes);
 
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
+	apiRoute.use("/costoLubricentro", CostoLubricentroRoutes);
 
 
 	//!prefj
