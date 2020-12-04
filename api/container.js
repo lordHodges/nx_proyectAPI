@@ -25,6 +25,9 @@ const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 const CostoLubricentroRoutes = require("../api/routes/Lubricentro/costoLubricentro.routes");
 
+const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
+const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
+const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
@@ -48,6 +51,9 @@ const {
 	RentacarIngresosRequestBusiness,
 	CostoLubricentroBusiness,
 
+	EgresoRentacarBusiness,
+	EgresoInmobiliariaBusiness,
+	IngresoInmobiliariaBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -69,6 +75,9 @@ const {
 	IngresoRentacarController,
 	CostoLubricentroController,
 
+	EgresoRentacarController,
+	EgresoInmobiliariaController,
+	IngresoInmobiliariaController,
 } = require("../api/controllers");
 
 //services
@@ -92,6 +101,9 @@ const {
 	RentacarService,
 	CostoLubricentroService,
 
+	EgresoRentacarService,
+	EgresoInmobiliariaService,
+	IngresoInmobiliariaService,
 } = require("../services");
 
 //repositories
@@ -114,12 +126,13 @@ const {
 	RentacarIngresosRequestRepository,
 	CostoLubricentroRepository,
 
+	EgresoRentacarRepository,
+	EgresoInmobiliariaRepository,
+	IngresoInmobiliariaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
 const db = require("../dal/models/");
-const cuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
-const egresoFirma = require("../dal/models/egresoFirma");
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -173,12 +186,19 @@ container
 		AbogadoController: asClass(AbogadoController).singleton(),
 		EgresoFirmaRoutes: asFunction(EgresoFirmaRoutes).singleton(),
 		EgresoFirmaController: asClass(EgresoFirmaController).singleton(),
+		EgresoRentacarController: asClass(EgresoRentacarController).singleton(),
+		EgresoRentacarRoutes: asFunction(EgresoRentacarRoutes).singleton(),
 		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
 		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
 		CostoLubricentroRoutes: asFunction(CostoLubricentroRoutes).singleton(),
 		CostoLubricentroController: asClass(CostoLubricentroController).singleton(),
+		EgresoInmobiliariaRoutes: asFunction(EgresoInmobiliariaRoutes).singleton(),
+		IngresoInmobiliariaRoutes: asFunction(IngresoInmobiliariaRoutes).singleton(),
+		EgresoInmobiliariaController: asClass(EgresoInmobiliariaController).singleton(),
+		IngresoInmobiliariaController: asClass(IngresoInmobiliariaController).singleton(),
 
 	})
+
 	.register({
 		config: asValue(config),
 		db: asValue(db),
@@ -205,8 +225,11 @@ container
 		AbogadoService: asClass(AbogadoService).singleton(),
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 		RentacarService: asClass(RentacarService).singleton(),
-		CostoLubricentroBusiness: asClass(CostoLubricentroService).singleton(),
+		CostoLubricentroService: asClass(CostoLubricentroService).singleton(),
 
+		EgresoRentacarService: asClass(EgresoRentacarService).singleton(),
+		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
+		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -237,6 +260,13 @@ container
 		).singleton(),
 		CostoLubricentroRepository: asClass(CostoLubricentroRepository).singleton(),
 
+		EgresoRentacarRepository: asClass(EgresoRentacarRepository).singleton(),
+		EgresoInmobiliariaRepository: asClass(
+			EgresoInmobiliariaRepository
+		).singleton(),
+		IngresoInmobiliariaRepository: asClass(
+			IngresoInmobiliariaRepository
+		).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -262,5 +292,8 @@ container
 		).singleton(),
 		CostoLubricentroBusiness: asClass(CostoLubricentroBusiness).singleton(),
 
+		EgresoRentacarBusiness: asClass(EgresoRentacarBusiness).singleton(),
+		EgresoInmobiliariaBusiness: asClass(EgresoInmobiliariaBusiness).singleton(),
+		IngresoInmobiliariaBusiness: asClass(IngresoInmobiliariaBusiness).singleton(),
 	});
 module.exports = container;

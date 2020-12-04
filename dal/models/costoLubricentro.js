@@ -6,21 +6,28 @@ module.exports = (sequelize, DataTypes) => {
             CostoLubricentro.belongsTo(models.Sucursal, {
                 foreignKey: "idSucursal",
             });
-            CostoLubricentro.belongsTo(models.Usuario,{
+            CostoLubricentro.belongsTo(models.Usuario, {
                 foreignKey: "idUsuario",
             });
             CostoLubricentro.hasMany(models.RespaldoCostoLubricentro, {
                 foreignKey: "idCosto",
             });
+            CostoLubricentro.belongsTo(models.IngresoLubricentro, {
+                foreignKey: "idIngreso",
+            });
+            CostoLubricentro.belongsTo(models.EgresoLubricentro, {
+                foreignKey: "idEgreso",
+            });
         }
     }
     CostoLubricentro.init(
     {
-        tipoCosto:DataTypes.STRING,
-        fecha: DataTypes.STRING,
-        monto: DataTypes.INTEGER,
-        responsable: DataTypes.STRING,
-        descripcion: DataTypes.STRING,
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false,
+          },
     },
     {
         sequelize,
@@ -28,4 +35,5 @@ module.exports = (sequelize, DataTypes) => {
         tableName: "CostoLubricentro",
     }
     );
+    return CostoLubricentro;
 }

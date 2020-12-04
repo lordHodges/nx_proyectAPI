@@ -1,4 +1,3 @@
-const CostoLubricentroService = require("../../../services/Lubricentro/costoLubricentro.service");
 const { CostoLubricentro } = require("../../models");
 const BaseBusiness = require("../base.business");
 
@@ -24,3 +23,5 @@ class CostoLubricentroBusiness extends BaseBusiness {
         return costo;
     }
 }
+
+module.exports = CostoLubricentroBusiness;

@@ -1,8 +1,7 @@
-const CostoLubricentro = require("../../../domain/models/costoLubricentro");
 
 class CostoLubricentroController {
     constructor({ CostoLubricentroService }) {
-        this._service = CostoLubricentroServices;
+        this._service = CostoLubricentroService;
     }
 
     async upload(req, res){

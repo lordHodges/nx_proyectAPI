@@ -25,6 +25,9 @@ module.exports = function ({
 	IngresoRentacarRoutes,
 	CostoLubricentroRoutes,
 	
+	EgresoRentacarRoutes,
+	IngresoInmobiliariaRoutes,
+	EgresoInmobiliariaRoutes,
 }) {
 	const router = Router();
 	const apiRoute = Router();
@@ -45,10 +48,13 @@ module.exports = function ({
 	apiRoute.use("/contratoCienteAbogado", ContratoClienteAbogadoRoutes);
 	apiRoute.use("/cuotasContrato", CuotasContratoAbogadoRoutes);
 	apiRoute.use("/abogado", AbogadoRoutes);
-	apiRoute.use("/rentacar", IngresoRentacarRoutes);
+	apiRoute.use("/ingresoRentacar", IngresoRentacarRoutes);
+	apiRoute.use("/egresoRentacar", EgresoRentacarRoutes);
 
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
 	apiRoute.use("/costoLubricentro", CostoLubricentroRoutes);
+	apiRoute.use("/ingresoInmobiliaria", IngresoInmobiliariaRoutes);
+	apiRoute.use("/egresoInmobiliaria", EgresoInmobiliariaRoutes);
 
 
 	//!prefj
