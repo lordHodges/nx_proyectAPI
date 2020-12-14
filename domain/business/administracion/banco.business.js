@@ -1,9 +1,10 @@
 const BaseBusiness = require("../base.business");
 
 class BancoBusiness extends BaseBusiness {
-	constructor({ BancoRepository }) {
+	constructor({ BancoRepository, ProyectoAgrofirmaRepository }) {
 		super(BancoRepository);
 		this._repository = BancoRepository;
+		this._proyectoRepository = ProyectoAgrofirmaRepository;
 	}
 	async obtenerBancos() {
 		// !constante proporocionadad por vendor;
@@ -32,6 +33,16 @@ class BancoBusiness extends BaseBusiness {
 	async obtenerBancosDB() {
 		const bancos = await this._repository.getAll();
 		return bancos;
+	}
+	async registrarCuentasBancarias(cuenta) {
+		const cuentaCreate = await this._repository.registrarCuentasBancarias(
+			cuenta
+		);
+		return cuentaCreate;
+	}
+	async obtenerCuentasByEntity(idEntity) {
+		const cuentas = await this._repository.obtenerCuentasByEntity(idEntity);
+		return cuentas;
 	}
 }
 module.exports = BancoBusiness;

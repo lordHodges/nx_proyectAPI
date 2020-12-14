@@ -8,7 +8,15 @@ module.exports = function ({ BancoController }) {
 		BancoController.persistirListaBancos.bind(BancoController)
 	);
 
-	router.get("/getBancos", BancoController.getBancos.bind(BancoController));
+	router.get("/obtenerBancos", BancoController.getBancos.bind(BancoController));
+	router.post(
+		"/registrarCuentasBancarias",
+		BancoController.registrarCuentasBancarias.bind(BancoController)
+	);
+	router.get(
+		"/obtenerCuentasByEntity/:idEntity",
+		BancoController.obtenerCuentasByEntity.bind(BancoController)
+	);
 
 	return router;
 };

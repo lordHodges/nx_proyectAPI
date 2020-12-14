@@ -14,5 +14,16 @@ class BancoRepository extends BaseRepository {
 			return { error, msje };
 		}
 	}
+	async registrarCuentasBancarias(cuenta) {
+		const cuentaCreated = await this._db["CuentasProyecto"].create(cuenta);
+		return cuentaCreated;
+	}
+	async obtenerCuentasByEntity(idEntity) {
+		const cuentas = await this._db["CuentasProyecto"].findAll({
+			include: [{ model: this._db.Banco }],
+			where: { idProyecto: idEntity },
+		});
+		return cuentas;
+	}
 }
 module.exports = BancoRepository;

@@ -1,7 +1,10 @@
 const BaseBusiness = require("../base.business");
 
-class ProyectoAgrofirma extends BaseBusiness {
-	constructor() {}
+class ProyectoAgrofirmaBusiness extends BaseBusiness {
+	constructor({ ProyectoAgrofirmaRepository }) {
+		super(ProyectoAgrofirmaRepository);
+		this._repository = ProyectoAgrofirmaRepository;
+	}
 	async crearProyecto() {}
 	async obtenerProyectos() {}
 	async obtenerProyecto() {}
@@ -10,7 +13,7 @@ class ProyectoAgrofirma extends BaseBusiness {
 	async cambiarEstadoProyecto() {}
 	async agregarInversionistas() {}
 }
-module.exports = ProyectoAgrofirma;
+module.exports = ProyectoAgrofirmaBusiness;
 
 //? se debe plantear modelo de negocio
 //? en el contexto de agrofirma existen proyectos de inversion como el de las ceresas, donde un grupo de inversionistas participan de este proyecto como benefactores,

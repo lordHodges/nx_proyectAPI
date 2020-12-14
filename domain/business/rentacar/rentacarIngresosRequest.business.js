@@ -78,20 +78,24 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 		let totalArriendo = 0;
 
 		arriendos["data"].forEach((arriendo) => {
-			arriendo["pagosArriendos"].forEach((pagoArriendo) => {
-				pagoArriendo["pagos"].forEach((pago) => {
-					//definiendo total PAgo Let;
-					totalArriendo += pago["total_pago"];
-					//definiendo estadoPago Arriendo let
-					if (pago["estado_pago"] == "PENDIENTE") {
-						count++;
-					}
+			if (arriendo["pagosArriendos"].length > 0) {
+				arriendo["pagosArriendos"].forEach((pagoArriendo) => {
+					pagoArriendo["pagos"].forEach((pago) => {
+						//definiendo total PAgo Let;
+						totalArriendo += pago["total_pago"];
+						//definiendo estadoPago Arriendo let
+						if (pago["estado_pago"] == "PENDIENTE") {
+							count++;
+						}
+					});
 				});
-			});
-			if (count > 0) {
-				arriendo["estado_pago"] = "PENDIENTE";
+				if (count > 0) {
+					arriendo["estado_pago"] = "PENDIENTE";
+				} else {
+					arriendo["estado_pago"] = "PAGADO";
+				}
 			} else {
-				arriendo["estado_pago"] = "PAGADO";
+				arriendo["estado_pago"] = "PENDIENTE";
 			}
 
 			arriendo["totalArriendo"] = totalArriendo;

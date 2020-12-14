@@ -8,13 +8,17 @@ module.exports = (sequelize, DataTypes) => {
 		 * The `models/index` file will call this method automatically.
 		 */
 		static associate(models) {
-			/* Banco.belongsTo(models.Usuario, {
-				foreignKey: "idUsuario",
-			});
-			Banco.belongsToMany(models.Causa, {
-				through: models.Equipo,
+			Banco.belongsToMany(models.ProyectoAgrofirma, {
+				through: "CuentasProyecto",
 				foreignKey: "idBanco",
-			}); */
+			});
+			Banco.belongsToMany(models.Cliente, {
+				through: "CuentasCliente",
+				foreignKey: "idBanco",
+			});
+			Banco.hasMany(models.CuentasProyecto, {
+				foreignKey: "idBanco",
+			});
 		}
 	}
 	Banco.init(

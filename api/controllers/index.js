@@ -16,4 +16,7 @@ module.exports = {
 	IngresoRentacarController: require("./Rentacar/ingresoRentacar.controller"),
 	EgresoRentacarController: require("./Rentacar/egresoRentacar.controller"),
 	BancoController: require("./banco.controller"),
+	ProyectoAgrofirmaController: require("./agrofirma/proyectoAgrofirma.controller"),
+	IngresoAgrofirmaController: require("./agrofirma/ingresoAgrofirma.controller"),
+	EgresoAgrofirmaController: require("./agrofirma/egresoAgrofirma.controller"),
 };

@@ -13,5 +13,15 @@ class BancoService extends BaseService {
 		const bancos = await this._business.obtenerBancosDB();
 		return bancos;
 	}
+	async registrarCuentasBancarias(cuenta) {
+		const cuentaCreated = await this._business.registrarCuentasBancarias(
+			cuenta
+		);
+		return cuentaCreated;
+	}
+	async obtenerCuentasByEntity(idEntity) {
+		const cuentas = await this._business.obtenerCuentasByEntity(idEntity);
+		return cuentas;
+	}
 }
 module.exports = BancoService;
