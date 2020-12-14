@@ -10,6 +10,6 @@ class EgresoLubricentro {
     idSucursal = 0;
     idUsuario = 0;
     respaldoEgresos = [RespaldoEgresoLubricentro];
-    idCosto = 0;
+    idIngreso = 0;
 }
 module.exports = EgresoLubricentro;

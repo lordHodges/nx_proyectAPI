@@ -17,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       EgresoLubricentro.hasMany(models.RespaldoEgresoLubricentro, {
         foreignKey: "idEgreso",
       });
-      EgresoLubricentro.hasMany(models.CostoLubricentro, {
-        foreignKey: "idCosto",
-    });
+      EgresoLubricentro.belongsTo(models.IngresoLubricentro, {
+        foreignKey: "idIngreso",
+      });
     }
   }
   EgresoLubricentro.init(
@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       monto: DataTypes.INTEGER,
       responsable: DataTypes.STRING,
       descripcion: DataTypes.STRING,
+      idIngreso: DataTypes.INTEGER,
     },
     {
       sequelize,

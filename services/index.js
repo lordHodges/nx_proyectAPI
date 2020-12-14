@@ -16,8 +16,6 @@ module.exports = {
 	RentacarService: require("./Rentacar/ingresosRentacar.service"),
 	EgresoLubricentroService: require("./Lubricentro/egresoLubricentro.service"),
 	IngresoLubricentroService: require("./Lubricentro/ingresoLubricentro.service"),
-	CostoLubricentroService: require("./Lubricentro/costoLubricentro.service"),
-
 	EgresoRentacarService: require("./Rentacar/egresoRentacar.service"),
 	EgresoInmobiliariaService: require("./Inmobiliaria/egresoInmobiliaria.service"),
 	IngresoInmobiliariaService: require("./Inmobiliaria/ingresoInmobiliaria.service"),

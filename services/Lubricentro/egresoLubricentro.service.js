@@ -19,5 +19,9 @@ class EgresoLubricentroService extends BaseService {
         const egreso = await this._egresoBusiness.getOneWithJoin(id);
         return egreso;
     }
+    async getDetalleEgreso(idEgreso) {
+		const detalle = await this._egresoBusiness.getDetalleEgreso(idEgreso);
+		return detalle;
+	}
 }
 module.exports = EgresoLubricentroService;

@@ -14,7 +14,6 @@ module.exports = {
 	//?Lubricentro
 	EgresoLubricentroRepository: require("./lubricentro/egresoLubricentro.repository"),
 	IngresoLubricentroRepository: require("./lubricentro/ingresoLubricentro.repository"),
-	CostoLubricentroRepository: require("./lubricentro/costoLubricentro.repository"),
 
 	//?abogados
 	CausaRepository: require("./abogados/causa.repository"),

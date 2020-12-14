@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
             IngresoLubricentro.hasMany(models.RespaldoIngresoLubricentro, {
                 foreignKey: "idIngreso",
             });
-            IngresoLubricentro.hasMany(models.CostoLubricentro, {
-                foreignKey: "idCosto",
+            IngresoLubricentro.hasMany(models.EgresoLubricentro, {
+                foreignKey: "idIngreso",
             });
         }
     }

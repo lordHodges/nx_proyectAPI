@@ -23,8 +23,6 @@ const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContra
 const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
-const CostoLubricentroRoutes = require("../api/routes/Lubricentro/costoLubricentro.routes");
-
 const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
 const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
 const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
@@ -49,7 +47,6 @@ const {
 	AbogadoBusiness,
 	EgresoFirmaBusiness,
 	RentacarIngresosRequestBusiness,
-	CostoLubricentroBusiness,
 
 	EgresoRentacarBusiness,
 	EgresoInmobiliariaBusiness,
@@ -73,8 +70,6 @@ const {
 	AbogadoController,
 	EgresoFirmaController,
 	IngresoRentacarController,
-	CostoLubricentroController,
-
 	EgresoRentacarController,
 	EgresoInmobiliariaController,
 	IngresoInmobiliariaController,
@@ -99,8 +94,6 @@ const {
 	AbogadoService,
 	EgresoFirmaService,
 	RentacarService,
-	CostoLubricentroService,
-
 	EgresoRentacarService,
 	EgresoInmobiliariaService,
 	IngresoInmobiliariaService,
@@ -124,8 +117,6 @@ const {
 	AbogadoRepository,
 	EgresoFirmaRepository,
 	RentacarIngresosRequestRepository,
-	CostoLubricentroRepository,
-
 	EgresoRentacarRepository,
 	EgresoInmobiliariaRepository,
 	IngresoInmobiliariaRepository,
@@ -190,8 +181,6 @@ container
 		EgresoRentacarRoutes: asFunction(EgresoRentacarRoutes).singleton(),
 		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
 		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
-		CostoLubricentroRoutes: asFunction(CostoLubricentroRoutes).singleton(),
-		CostoLubricentroController: asClass(CostoLubricentroController).singleton(),
 		EgresoInmobiliariaRoutes: asFunction(EgresoInmobiliariaRoutes).singleton(),
 		IngresoInmobiliariaRoutes: asFunction(IngresoInmobiliariaRoutes).singleton(),
 		EgresoInmobiliariaController: asClass(EgresoInmobiliariaController).singleton(),
@@ -225,8 +214,6 @@ container
 		AbogadoService: asClass(AbogadoService).singleton(),
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 		RentacarService: asClass(RentacarService).singleton(),
-		CostoLubricentroService: asClass(CostoLubricentroService).singleton(),
-
 		EgresoRentacarService: asClass(EgresoRentacarService).singleton(),
 		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
 		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
@@ -258,8 +245,6 @@ container
 		RentacarIngresosRequestRepository: asClass(
 			RentacarIngresosRequestRepository
 		).singleton(),
-		CostoLubricentroRepository: asClass(CostoLubricentroRepository).singleton(),
-
 		EgresoRentacarRepository: asClass(EgresoRentacarRepository).singleton(),
 		EgresoInmobiliariaRepository: asClass(
 			EgresoInmobiliariaRepository
@@ -290,8 +275,6 @@ container
 		RentacarIngresosRequestBusiness: asClass(
 			RentacarIngresosRequestBusiness
 		).singleton(),
-		CostoLubricentroBusiness: asClass(CostoLubricentroBusiness).singleton(),
-
 		EgresoRentacarBusiness: asClass(EgresoRentacarBusiness).singleton(),
 		EgresoInmobiliariaBusiness: asClass(EgresoInmobiliariaBusiness).singleton(),
 		IngresoInmobiliariaBusiness: asClass(IngresoInmobiliariaBusiness).singleton(),

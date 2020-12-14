@@ -30,10 +30,13 @@ module.exports = function ({ EgresoLubricentroController }) {
 	);
 
 	router.get(
-		"/:id",
+		"/getDetalle/:id",
+		EgresoLubricentroController.getDetalleEgreso.bind(EgresoLubricentroController)
+	);
+	router.get(
+		"/getEgreso/:id",
 		EgresoLubricentroController.getEgreso.bind(EgresoLubricentroController)
 	);
-
 	router.post(
 		"/conRespaldo",
 		EgresoLubricentroController.createEgresoWithRespaldo.bind(

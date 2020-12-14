@@ -23,8 +23,6 @@ module.exports = function ({
 	AbogadoRoutes,
 	EgresoFirmaRoutes,
 	IngresoRentacarRoutes,
-	CostoLubricentroRoutes,
-	
 	EgresoRentacarRoutes,
 	IngresoInmobiliariaRoutes,
 	EgresoInmobiliariaRoutes,
@@ -52,7 +50,6 @@ module.exports = function ({
 	apiRoute.use("/egresoRentacar", EgresoRentacarRoutes);
 
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
-	apiRoute.use("/costoLubricentro", CostoLubricentroRoutes);
 	apiRoute.use("/ingresoInmobiliaria", IngresoInmobiliariaRoutes);
 	apiRoute.use("/egresoInmobiliaria", EgresoInmobiliariaRoutes);
 

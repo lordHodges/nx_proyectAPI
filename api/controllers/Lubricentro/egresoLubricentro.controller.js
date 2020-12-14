@@ -4,7 +4,11 @@ class EgresoLubricentroController {
   constructor({ EgresoLubricentroService }) {
     this._service = EgresoLubricentroService;
   }
-
+  async getDetalleEgreso(req, res) {
+		const { id } = req.params;
+		const egreso = await this._service.getOneWithJoin(id);
+		return res.status(200).send(egreso);
+	}
   async upload(req, res) {
     if (!req.file) {
       console.log("No file received");
