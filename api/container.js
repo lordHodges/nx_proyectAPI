@@ -24,8 +24,8 @@ const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
-const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
-const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
+const EgresoInmobiliariaRoutes = require("../api/routes/inmobiliaria/egresoInmobiliaria.routes");
+const IngresoInmobiliariaRoutes = require("../api/routes/inmobiliaria/ingresoInmobiliaria.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
