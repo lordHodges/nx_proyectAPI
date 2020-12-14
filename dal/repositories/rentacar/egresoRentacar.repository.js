@@ -21,7 +21,7 @@ class EgresoRentacarRepository extends BaseRepository {
 		});
 	}
 	async getOneWithJoin(id) {
-		return this._db[this._model].findAll({
+		return await this._db[this._model].findAll({
 			include: [
 				{ model: this._db.Sucursal },
 				{ model: this._db.Usuario },

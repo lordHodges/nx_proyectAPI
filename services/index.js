@@ -17,4 +17,9 @@ module.exports = {
 	EgresoLubricentroService: require("./Lubricentro/egresoLubricentro.service"),
 	IngresoLubricentroService: require("./Lubricentro/ingresoLubricentro.service"),
 	EgresoRentacarService: require("./Rentacar/egresoRentacar.service"),
+	BancoService: require("./banco.service"),
+	ProyectoAgrofirmaService: require("./agrofirma/proyectoAgrofirma.service"),
+	IngresoAgrofirmaService: require("./agrofirma/ingresoAgrofirma.service"),
+	EgresoAgrofirmaService: require("./agrofirma/egresoAgrofirma.service"),
+	CuentaBancariaService: require("./cuentaBancaria/cuentaBancaria.service"),
 };

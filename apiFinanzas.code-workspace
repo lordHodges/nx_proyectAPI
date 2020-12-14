@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "./api"
+		},
+		{
+			"path": "./dal"
+		},
+		{
+			"path": "./domain"
+		},
+		{
+			"path": "./services"
+		},
+		{
+			"path": "./helpers"
+		},
+		{
+			"path": "../finanzasUml"
+		}
+	],
+	"settings": {}
+}
