@@ -1,11 +1,10 @@
-const { EgresoLubricentro } = require("../../models");
+const { EgresoInmobiliaria } = require("../../models");
 const BaseBusiness = require("../base.business");
 
-class EgresoLubricentroBusiness extends BaseBusiness {
-  constructor({ EgresoLubricentroRepository, IngresoLubricentroBusiness }) {
-    super(EgresoLubricentroRepository);
-	this._egresoRepository = EgresoLubricentroRepository;
-	this.ingresoBusiness = IngresoLubricentroBusiness;
+class EgresoInmobiliariaBusiness extends BaseBusiness {
+  constructor({ EgresoInmobiliariaRepository }) {
+    super(EgresoInmobiliariaRepository, EgresoInmobiliaria);
+    this._egresoRepository = EgresoInmobiliariaRepository;
   }
 
   async createWithRespaldos(entity) {
@@ -25,4 +24,4 @@ class EgresoLubricentroBusiness extends BaseBusiness {
     return egreso;
   }
 }
-module.exports = EgresoLubricentroBusiness;
+module.exports = EgresoInmobiliariaBusiness;

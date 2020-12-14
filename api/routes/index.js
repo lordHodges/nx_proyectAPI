@@ -24,6 +24,8 @@ module.exports = function ({
 	EgresoFirmaRoutes,
 	IngresoRentacarRoutes,
 	EgresoRentacarRoutes,
+	IngresoInmobiliariaRoutes,
+	EgresoInmobiliariaRoutes,
 }) {
 	const router = Router();
 	const apiRoute = Router();
@@ -48,6 +50,9 @@ module.exports = function ({
 	apiRoute.use("/egresoRentacar", EgresoRentacarRoutes);
 
 	apiRoute.use("/egresoFirma", EgresoFirmaRoutes);
+	apiRoute.use("/ingresoInmobiliaria", IngresoInmobiliariaRoutes);
+	apiRoute.use("/egresoInmobiliaria", EgresoInmobiliariaRoutes);
+
 
 	//!prefj
 	router.use("/api", apiRoute);

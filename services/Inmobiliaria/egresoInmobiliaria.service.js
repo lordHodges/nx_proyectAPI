@@ -1,9 +1,9 @@
 const BaseService = require("../base.service");
 
-class EgresoLubricentroService extends BaseService {
-    constructor ({ EgresoLubricentroBusiness }){
-        super(EgresoLubricentroBusiness);
-        this._egresoBusiness = EgresoLubricentroBusiness;
+class EgresoInmobiliariaService extends BaseService {
+    constructor ({ EgresoInmobiliariaBusiness }){
+        super(EgresoInmobiliariaBusiness);
+        this._egresoBusiness = EgresoInmobiliariaBusiness;
     }
     async createWithRespaldos(entity){
         const createdEntity = await this._egresoBusiness.createWithRespaldos(
@@ -19,9 +19,5 @@ class EgresoLubricentroService extends BaseService {
         const egreso = await this._egresoBusiness.getOneWithJoin(id);
         return egreso;
     }
-    async getDetalleEgreso(idEgreso) {
-		const detalle = await this._egresoBusiness.getDetalleEgreso(idEgreso);
-		return detalle;
-	}
 }
-module.exports = EgresoLubricentroService;
+module.exports = EgresoInmobiliariaService;

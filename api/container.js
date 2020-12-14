@@ -24,6 +24,8 @@ const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
 const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
 const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
 const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
+const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
+const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
@@ -45,7 +47,10 @@ const {
 	AbogadoBusiness,
 	EgresoFirmaBusiness,
 	RentacarIngresosRequestBusiness,
+
 	EgresoRentacarBusiness,
+	EgresoInmobiliariaBusiness,
+	IngresoInmobiliariaBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -66,6 +71,8 @@ const {
 	EgresoFirmaController,
 	IngresoRentacarController,
 	EgresoRentacarController,
+	EgresoInmobiliariaController,
+	IngresoInmobiliariaController,
 } = require("../api/controllers");
 
 //services
@@ -88,6 +95,8 @@ const {
 	EgresoFirmaService,
 	RentacarService,
 	EgresoRentacarService,
+	EgresoInmobiliariaService,
+	IngresoInmobiliariaService,
 } = require("../services");
 
 //repositories
@@ -109,6 +118,8 @@ const {
 	EgresoFirmaRepository,
 	RentacarIngresosRequestRepository,
 	EgresoRentacarRepository,
+	EgresoInmobiliariaRepository,
+	IngresoInmobiliariaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -170,6 +181,11 @@ container
 		EgresoRentacarRoutes: asFunction(EgresoRentacarRoutes).singleton(),
 		IngresoRentacarController: asClass(IngresoRentacarController).singleton(),
 		IngresoRentacarRoutes: asFunction(IngresoRentacarRoutes).singleton(),
+		EgresoInmobiliariaRoutes: asFunction(EgresoInmobiliariaRoutes).singleton(),
+		IngresoInmobiliariaRoutes: asFunction(IngresoInmobiliariaRoutes).singleton(),
+		EgresoInmobiliariaController: asClass(EgresoInmobiliariaController).singleton(),
+		IngresoInmobiliariaController: asClass(IngresoInmobiliariaController).singleton(),
+
 	})
 
 	.register({
@@ -199,6 +215,8 @@ container
 		EgresoFirmaService: asClass(EgresoFirmaService).singleton(),
 		RentacarService: asClass(RentacarService).singleton(),
 		EgresoRentacarService: asClass(EgresoRentacarService).singleton(),
+		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
+		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -228,6 +246,12 @@ container
 			RentacarIngresosRequestRepository
 		).singleton(),
 		EgresoRentacarRepository: asClass(EgresoRentacarRepository).singleton(),
+		EgresoInmobiliariaRepository: asClass(
+			EgresoInmobiliariaRepository
+		).singleton(),
+		IngresoInmobiliariaRepository: asClass(
+			IngresoInmobiliariaRepository
+		).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -252,5 +276,7 @@ container
 			RentacarIngresosRequestBusiness
 		).singleton(),
 		EgresoRentacarBusiness: asClass(EgresoRentacarBusiness).singleton(),
+		EgresoInmobiliariaBusiness: asClass(EgresoInmobiliariaBusiness).singleton(),
+		IngresoInmobiliariaBusiness: asClass(IngresoInmobiliariaBusiness).singleton(),
 	});
 module.exports = container;

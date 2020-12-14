@@ -11,7 +11,7 @@ module.exports = {
 	EgresoHostalRepository: require("./hostal/egresoHostal.repository"),
 	IngresoHostalRepository: require("./hostal/ingresoHostal.repository"),
 
-	//?lubricentro
+	//?Lubricentro
 	EgresoLubricentroRepository: require("./lubricentro/egresoLubricentro.repository"),
 	IngresoLubricentroRepository: require("./lubricentro/ingresoLubricentro.repository"),
 
@@ -24,4 +24,8 @@ module.exports = {
 	EgresoFirmaRepository: require("./abogados/egresoFirma.repository"),
 	RentacarIngresosRequestRepository: require("./rentacar/rentacarIngresosRequest.repository"),
 	EgresoRentacarRepository: require("./rentacar/egresoRentacar.repository"),
+
+	//?inmobiliaria
+	EgresoInmobiliariaRepository: require("./inmobiliaria/egresoInmobiliaria.repository"),
+	IngresoInmobiliariaRepository: require("./inmobiliaria/ingresoInmobiliaria.repository"),
 };

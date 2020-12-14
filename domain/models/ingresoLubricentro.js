@@ -22,5 +22,6 @@ class IngresoLubricentro {
   idSucursal = 0;
   idUsuario = 0;
   respaldoEgresoLubricentro = [ResoaldoIngreso];
+  idIngreso = 0;
 }
 module.exports = IngresoLubricentro;
