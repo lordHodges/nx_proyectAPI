@@ -28,6 +28,8 @@ const BancoRoutes = require("../api/routes/banco.routes");
 const ProyectoAgrofirmaRoutes = require("../api/routes/agrofirma/proyectoAgrofirma.routes");
 const IngresoAgrofirmaRoutes = require("../api/routes/agrofirma/ingresoAgrofirma.routes");
 const EgresoAgrofirmaRoutes = require("../api/routes/agrofirma/egresoAgrofirma.routes");
+const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
+const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
 
 //importar helpers
 const { RequestApiHelper } = require("../helpers");
@@ -50,11 +52,14 @@ const {
 	AbogadoBusiness,
 	EgresoFirmaBusiness,
 	RentacarIngresosRequestBusiness,
+
 	EgresoRentacarBusiness,
 	BancoBusiness,
 	ProyectoAgrofirmaBusiness,
 	IngresoAgrofirmaBusiness,
 	EgresoAgrofirmaBusiness,
+	EgresoInmobiliariaBusiness,
+	IngresoInmobiliariaBusiness,
 } = require("../domain/business");
 
 //controllers
@@ -79,6 +84,8 @@ const {
 	ProyectoAgrofirmaController,
 	IngresoAgrofirmaController,
 	EgresoAgrofirmaController,
+	EgresoInmobiliariaController,
+	IngresoInmobiliariaController,
 } = require("../api/controllers");
 
 //services
@@ -106,6 +113,8 @@ const {
 	IngresoAgrofirmaService,
 	CuentaBancariaService,
 	EgresoAgrofirmaService,
+	EgresoInmobiliariaService,
+	IngresoInmobiliariaService,
 } = require("../services");
 
 //repositories
@@ -131,6 +140,8 @@ const {
 	ProyectoAgrofirmaRepository,
 	IngresoAgrofirmaRepository,
 	EgresoAgrofirmaRepository,
+	EgresoInmobiliariaRepository,
+	IngresoInmobiliariaRepository,
 } = require("../dal/repositories");
 
 //ENLACE A BD
@@ -210,6 +221,16 @@ container
 		IngresoAgrofirmaController: asClass(IngresoAgrofirmaController).singleton(),
 		EgresoAgrofirmaController: asClass(EgresoAgrofirmaController).singleton(),
 		EgresoAgrofirmaRoutes: asFunction(EgresoAgrofirmaRoutes).singleton(),
+		EgresoInmobiliariaRoutes: asFunction(EgresoInmobiliariaRoutes).singleton(),
+		IngresoInmobiliariaRoutes: asFunction(
+			IngresoInmobiliariaRoutes
+		).singleton(),
+		EgresoInmobiliariaController: asClass(
+			EgresoInmobiliariaController
+		).singleton(),
+		IngresoInmobiliariaController: asClass(
+			IngresoInmobiliariaController
+		).singleton(),
 	})
 
 	.register({
@@ -239,6 +260,8 @@ container
 		ProyectoAgrofirmaService: asClass(ProyectoAgrofirmaService).singleton(),
 		IngresoAgrofirmaService: asClass(IngresoAgrofirmaService).singleton(),
 		EgresoAgrofirmaService: asClass(EgresoAgrofirmaService).singleton(),
+		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
+		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -274,6 +297,12 @@ container
 		).singleton(),
 		IngresoAgrofirmaRepository: asClass(IngresoAgrofirmaRepository).singleton(),
 		EgresoAgrofirmaRepository: asClass(EgresoAgrofirmaRepository).singleton(),
+		EgresoInmobiliariaRepository: asClass(
+			EgresoInmobiliariaRepository
+		).singleton(),
+		IngresoInmobiliariaRepository: asClass(
+			IngresoInmobiliariaRepository
+		).singleton(),
 	})
 	.register({
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
@@ -302,5 +331,9 @@ container
 		ProyectoAgrofirmaBusiness: asClass(ProyectoAgrofirmaBusiness).singleton(),
 		IngresoAgrofirmaBusiness: asClass(IngresoAgrofirmaBusiness).singleton(),
 		EgresoAgrofirmaBusiness: asClass(EgresoAgrofirmaRepository).singleton(),
+		EgresoInmobiliariaBusiness: asClass(EgresoInmobiliariaBusiness).singleton(),
+		IngresoInmobiliariaBusiness: asClass(
+			IngresoInmobiliariaBusiness
+		).singleton(),
 	});
 module.exports = container;

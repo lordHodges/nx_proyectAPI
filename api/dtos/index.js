@@ -6,4 +6,5 @@ module.exports = {
   EgresoHostalDto: require("./Hostal/egresoHostal.dto"),
   RespaldoEgresoDto: require("./respaldoEgreso.dto"),
   EgresoLubricentroDto: require("./Lubricentro/egresoLubricentro.dto"),
+  EgresoInmobiliariaDto: require("./Inmobiliaria/egresoInmobiliaria.dto")
 };

@@ -19,4 +19,6 @@ module.exports = {
 	ProyectoAgrofirmaController: require("./agrofirma/proyectoAgrofirma.controller"),
 	IngresoAgrofirmaController: require("./agrofirma/ingresoAgrofirma.controller"),
 	EgresoAgrofirmaController: require("./agrofirma/egresoAgrofirma.controller"),
+	EgresoInmobiliariaController: require("./Inmobiliaria/egresoInmobiliaria.controller.js"),
+	IngresoInmobiliariaController: require("./Inmobiliaria/ingresoInmobiliaria.controller.js"),
 };

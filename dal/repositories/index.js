@@ -13,6 +13,7 @@ module.exports = {
 	IngresoHostalRepository: require("./hostal/ingresoHostal.repository"),
 
 	// ?lubricentro
+	//?Lubricentro
 	EgresoLubricentroRepository: require("./lubricentro/egresoLubricentro.repository"),
 	IngresoLubricentroRepository: require("./lubricentro/ingresoLubricentro.repository"),
 
@@ -30,4 +31,7 @@ module.exports = {
 	ProyectoAgrofirmaRepository: require("./agrofirma/proyectoAgrofirma.repository"),
 	IngresoAgrofirmaRepository: require("./agrofirma/ingresoAgrofirma.repository"),
 	EgresoAgrofirmaRepository: require("./agrofirma/egresoAgrofirma.repository"),
+	//?inmobiliaria
+	EgresoInmobiliariaRepository: require("./inmobiliaria/egresoInmobiliaria.repository"),
+	IngresoInmobiliariaRepository: require("./inmobiliaria/ingresoInmobiliaria.repository"),
 };

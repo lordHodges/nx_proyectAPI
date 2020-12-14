@@ -1,3 +1,4 @@
+const { EgresoHostal } = require("../../../domain/models");
 const BaseRepository = require("../base.repository");
 
 class EgresoLubricentroRepository extends BaseRepository {
@@ -6,14 +7,15 @@ class EgresoLubricentroRepository extends BaseRepository {
     this._db = db;
     this._egreso = "EgresoLubricentro";
   }
-  getAllWithJoins() {
-    return this._db[this._egreso].findAll({
+  async getAllWithJoins() {
+    const egresos = await this._db[this._egreso].findAll({
       include: [
         { model: this._db.Sucursal },
         { model: this._db.Usuario },
-        { model: this._db.RespaldoEgresoLubricentro},
+        { model: this._db.RespaldoEgresoLubricentro },
       ],
     });
+    return egresos;
   }
   createWithRespaldos(entity) {
     return this._db[this._egreso].create(entity, {
@@ -26,6 +28,10 @@ class EgresoLubricentroRepository extends BaseRepository {
         { model: this._db.Sucursal },
         { model: this._db.Usuario },
         { model: this._db.RespaldoEgresoLubricentro },
+        {
+          model: this._db.IngresoLubricentro,
+          include: [{ model: this._db.Sucursal }, { model: this._db.Usuario }],
+        },
       ],
       where: { id },
     });

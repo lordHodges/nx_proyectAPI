@@ -5,7 +5,7 @@ var express = require("express");
 var app = express();
 const path = require("path");
 
-var DIR = "../uploads/egresoLubricentro";
+var DIR = "../uploads/egresoInmobiliaria";
 express.static(DIR);
 let storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -21,51 +21,48 @@ let storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-module.exports = function ({ EgresoLubricentroController }) {
+module.exports = function ({ EgresoInmobiliariaController }) {
 	const router = Router();
 
 	router.get(
 		"/",
-		EgresoLubricentroController.getEgresos.bind(EgresoLubricentroController)
+		EgresoInmobiliariaController.getEgresos.bind(EgresoInmobiliariaController)
 	);
 
 	router.get(
-		"/getDetalle/:id",
-		EgresoLubricentroController.getDetalleEgreso.bind(EgresoLubricentroController)
+		"/:id",
+		EgresoInmobiliariaController.getEgreso.bind(EgresoInmobiliariaController)
 	);
-	router.get(
-		"/getEgreso/:id",
-		EgresoLubricentroController.getEgreso.bind(EgresoLubricentroController)
-	);
+
 	router.post(
 		"/conRespaldo",
-		EgresoLubricentroController.createEgresoWithRespaldo.bind(
-			EgresoLubricentroController
+		EgresoInmobiliariaController.createEgresoWithRespaldo.bind(
+			EgresoInmobiliariaController
 		)
 	);
 	router.post(
 		"/upload",
 		upload.single("photo"),
-		EgresoLubricentroController.upload.bind(EgresoLubricentroController)
+		EgresoInmobiliariaController.upload.bind(EgresoInmobiliariaController)
 	);
 
-	app.use("/api/egresoLubricentro/download", express.static(DIR));
+	app.use("/api/egresoInmobiliaria/download", express.static(DIR));
 	router.get("/download/*", function (req, res) {
 		let filename = req.params[0];
 		let filepath =
 			path.join(__dirname, "../../../../uploads") +
-			"/egresoLubricentro/" +
+			"/egresoInmobiliaria/" +
 			filename;
 
 		return res.sendFile(filepath);
 	});
 	/*  router.put(
     "/:id",
-    EgresoLubricentroController.updateEgreso.bind(EgresoLubricentroController)
+    EgresoInmobiliariaController.updateEgreso.bind(EgresoInmobiliariaController)
   );
   router.delete(
     "/:id",
-    EgresoLubricentroController.deleteEgreso.bind(EgresoLubricentroController)
+    EgresoInmobiliariaController.deleteEgreso.bind(EgresoInmobiliariaController)
   ); */
 
 	return router;

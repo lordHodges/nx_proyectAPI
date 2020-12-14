@@ -22,4 +22,6 @@ module.exports = {
 	IngresoAgrofirmaService: require("./agrofirma/ingresoAgrofirma.service"),
 	EgresoAgrofirmaService: require("./agrofirma/egresoAgrofirma.service"),
 	CuentaBancariaService: require("./cuentaBancaria/cuentaBancaria.service"),
+	EgresoInmobiliariaService: require("./Inmobiliaria/egresoInmobiliaria.service"),
+	IngresoInmobiliariaService: require("./Inmobiliaria/ingresoInmobiliaria.service"),
 };
