@@ -1,6 +1,6 @@
  
- .env
- /uploads
+ 
+.gitignore
  /node_modules
  .vscode
 
