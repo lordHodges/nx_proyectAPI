@@ -19,6 +19,6 @@ module.exports = {
 	BancoBusiness: require("./administracion/banco.business"),
 	IngresoAgrofirmaBusiness: require("./agrofirma/ingresoAgrofirma.business"),
 	EgresoAgrofirmaBusiness: require("./agrofirma/egresoAgrofirfma.business"),
-	EgresoInmobiliariaBusiness: require("./inmobiliaria/egresoInmobiliaria.business"),
-	IngresoInmobiliariaBusiness: require("./inmobiliaria/ingresoInmobiliaria.business"),
+	EgresoInmobiliariaBusiness: require("./Inmobiliaria/egresoInmobiliaria.business"),
+	IngresoInmobiliariaBusiness: require("./Inmobiliaria/ingresoInmobiliaria.business"),
 };
