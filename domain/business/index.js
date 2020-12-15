@@ -22,3 +22,4 @@ module.exports = {
 	EgresoInmobiliariaBusiness: require("./Inmobiliaria/egresoInmobiliaria.business"),
 	IngresoInmobiliariaBusiness: require("./Inmobiliaria/ingresoInmobiliaria.business"),
 };
+//add tracking here
