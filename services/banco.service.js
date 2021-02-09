@@ -19,6 +19,10 @@ class BancoService extends BaseService {
 		);
 		return cuentaCreated;
 	}
+	async registrarCuentasSucursal(cuenta) {
+		const cuentaCreated = await this._business.registrarCuentasSucursal(cuenta);
+		return cuentaCreated;
+	}
 	async obtenerCuentasByEntity(idEntity) {
 		const cuentas = await this._business.obtenerCuentasByEntity(idEntity);
 		return cuentas;

@@ -8,5 +8,6 @@ module.exports = {
 		dialect: "mysql",
 		logging: false,
 	},
-	SECRET: "lordhodges_generateToken",
+	SECRET: process.env.SECRET,
+	LOCAL: process.env.LOCAL,
 };

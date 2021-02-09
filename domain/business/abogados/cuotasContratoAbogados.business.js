@@ -84,5 +84,15 @@ class CuotasContratoAbogadoBusiness extends BaseBusiness {
 
 		return cuotas;
 	}
+	async agregarRespaldos(arrayRespaldos) {
+		const respaldoCuotas = await this._cuotasRepository.agregarRespaldos(
+			arrayRespaldos
+		);
+		return respaldoCuotas;
+	}
+	async obtenerRespaldos(id) {
+		const respaldoCuotas = await this._cuotasRepository.obtenerRespaldos(id);
+		return respaldoCuotas;
+	}
 }
 module.exports = CuotasContratoAbogadoBusiness;

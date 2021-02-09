@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
 			CuotasContrato.belongsTo(models.ContratoClienteAbogado, {
 				foreignKey: "idContrato",
 			});
+			CuotasContrato.hasMany(models.RespaldoIngreso, {
+				foreignKey: "idCuotaFirma",
+			});
 		}
 	}
 	CuotasContrato.init(

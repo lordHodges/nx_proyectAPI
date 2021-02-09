@@ -28,5 +28,20 @@ class CuotasContratoAbogadoService extends BaseService {
 		);
 		return cuotas;
 	}
+	async obtenerCuotas() {
+		const cuotas = await this.cuotaBusiness.getAll();
+		return cuotas;
+	}
+	async agregarRespaldos(arrayRespaldos) {
+		const respaldoCuotas = await this.cuotaBusiness.agregarRespaldos(
+			arrayRespaldos
+		);
+		return respaldoCuotas;
+	}
+	async obtenerRespaldos(id) {
+		const respaldoCuotas = await this.cuotaBusiness.obtenerRespaldos(id);
+
+		return respaldoCuotas;
+	}
 }
 module.exports = CuotasContratoAbogadoService;

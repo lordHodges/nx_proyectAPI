@@ -13,7 +13,6 @@ class IngresoHostalBusiness extends BaseBusiness {
 		const createdEntity = await this._ingresoRepository.createWithRespaldos(
 			entity
 		);
-		// const too = mapper(this._ingresoToMap, createdEntity.toJSON());
 		return createdEntity;
 	}
 	async getAllWithJoins() {
