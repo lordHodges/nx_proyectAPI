@@ -8,6 +8,7 @@ class UsuarioBusiness extends BaseBusiness {
 		super(UsuarioRepository, Usuario);
 		this._usuarioRepository = UsuarioRepository;
 		this._usuario = Usuario;
+		
 	}
 	async getByName(nombreUsuario) {
 		const usuario = await this._usuarioRepository.getByName(nombreUsuario);

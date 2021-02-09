@@ -4,7 +4,7 @@ module.exports = {
 		username: "root",
 		password: "nanco2121",
 		database: "new_finanzas_dev",
-		host: "localhost",
+		host: "mysqldb",
 		dialect: "mysql",
 		logging: false,
 	},

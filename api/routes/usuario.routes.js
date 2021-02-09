@@ -7,7 +7,6 @@ module.exports = function ({ UsuarioController, VerificarToken }) {
 
 	router.get(
 		"/:id",
-		VerificarToken.verifying,
 		UsuarioController.getUsuario.bind(UsuarioController)
 	);
 	router.get(
@@ -15,6 +14,7 @@ module.exports = function ({ UsuarioController, VerificarToken }) {
 		UsuarioController.getByName.bind(UsuarioController)
 	);
 	router.post("/", UsuarioController.createUsuario.bind(UsuarioController));
+	router.get('/default', UsuarioController.createDefault.bind(UsuarioController));
 	router.put("/:id", UsuarioController.updateUsuario.bind(UsuarioController));
 	router.delete(
 		"/:id",

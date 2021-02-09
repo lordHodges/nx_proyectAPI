@@ -6,6 +6,7 @@ class UsuarioController {
 	constructor({ UsuarioService, config }) {
 		this._usuarioService = UsuarioService;
 		this._config = config;
+
 	}
 
 	async getUsuarios(req, res) {
@@ -36,7 +37,24 @@ class UsuarioController {
 			payload: usuario,
 		});
 	}
+	async createDefault(){
+		const  body  = {"nombre":"admin",
+    "apellido": "admin",
+    "nombreUsuario": "admin",
+    "hash": "nanco2121",
+    "RolID": 1};
+		body.hash = await this._usuarioService.encriptarPassword(body.hash);
+		const createdUsuario = await this._usuarioService.create(body);
 
+		//const usuario = mapper(UsuarioDto, createdUsuario);
+		const token = jwt.sign({ id: createdUsuario.id }, this._config.SECRET, {
+			expiresIn: 60 * 60 * 24,
+		});
+
+		return res.status(201).send({
+			payload: { createdUsuario, token },
+		});
+	}
 	async createUsuario(req, res) {
 		const { body } = req;
 		body.hash = await this._usuarioService.encriptarPassword(body.hash);
