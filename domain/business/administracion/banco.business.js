@@ -40,6 +40,12 @@ class BancoBusiness extends BaseBusiness {
 		);
 		return cuentaCreate;
 	}
+	async registrarCuentasSucursal(cuenta) {
+		const cuentaCreated = await this._repository.registrarCuentasSucursal(
+			cuenta
+		);
+		return cuentaCreated;
+	}
 	async obtenerCuentasByEntity(idEntity) {
 		const cuentas = await this._repository.obtenerCuentasByEntity(idEntity);
 		return cuentas;

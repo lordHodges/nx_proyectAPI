@@ -1,3 +1,6 @@
+// esto deberia estar en la capa de infraestructura
+// de los recursos de configuracion de la aplicacion
+
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -7,33 +10,33 @@ const config = DB;
 const db = {};
 
 const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
+	config.database,
+	config.username,
+	config.password,
+	config
 );
 
 fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-    );
-  })
-  .forEach((file) => {
-    const model = sequelize["import"](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+	.filter((file) => {
+		return (
+			file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
+		);
+	})
+	.forEach((file) => {
+		const model = sequelize["import"](path.join(__dirname, file));
+		db[model.name] = model;
+	});
 
 Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+	if (db[modelName].associate) {
+		db[modelName].associate(db);
+	}
 });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.sync({ alter: true }).then(() => {
-  console.log("tablas sincronizadas");
+	console.log("tablas sincronizadas");
 });
 module.exports = db;

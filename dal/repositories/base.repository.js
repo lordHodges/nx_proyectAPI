@@ -11,6 +11,9 @@ class BaseRepository {
 	get(id) {
 		return this._db[this.entity].findOne({ where: { id } });
 	}
+	getAllbyForeignId(id) {
+		return this._db[this.entity].findAll({ where: id });
+	}
 
 	create(entity) {
 		return this._db[this.entity].create(entity);

@@ -1,8 +1,8 @@
-const express = require("express");
-const morgan = require("morgan");
-const fs = require("fs");
-const https = require("https");
-const bodyParser = require("body-parser");
+const express = require('express');
+
+const fs = require('fs');
+const https = require('https');
+const bodyParser = require('body-parser');
 
 class Server {
 	constructor({ config, router }) {
@@ -10,7 +10,7 @@ class Server {
 
 		this._express = express();
 		this._express.use(router);
-		this._express.use(morgan("dev"));
+
 		/* this._express.set(
       https.createServer({ key: key, cert: cert }, this._express)
     ); */
@@ -18,18 +18,11 @@ class Server {
 
 	start() {
 		return new Promise((resolve, reject) => {
-			/* const http = this._express.listen(this._config.PORT, () => {
-        const { port } = http.address();
-        console.log("Aplicacion corriendo en puerto:  " + port);
-        resolve();
-      });
-      
- */
 			const serv = https
 				.createServer(
 					{
-						key: fs.readFileSync("privkey4.pem"),
-						cert: fs.readFileSync("fullchain4.pem"),
+						key: fs.readFileSync('privkey4.pem'),
+						cert: fs.readFileSync('fullchain4.pem'),
 					},
 					this._express
 				)

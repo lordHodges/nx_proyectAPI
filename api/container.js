@@ -1,38 +1,39 @@
-const { asClass, createContainer, asFunction, asValue } = require("awilix");
-
+const { asClass, createContainer, asFunction, asValue } = require('awilix');
+const { LOCAL } = require('../config/environments');
 // app start
-const StartUp = require("./startup");
-const Server = require("./server");
-const config = require("../config/environments");
+const StartUp = require('./startup');
+const Server = require('./server');
+const LocalServer = require('./local_server');
+const config = require('../config/environments');
 
 //IMPORTAR RUTAS
-const Routes = require("../api/routes");
-const UsuarioRoutes = require("../api/routes/usuario.routes");
-const RolRoutes = require("../api/routes/rol.routes");
-const AuthRoutes = require("../api/routes/auth.routes");
-const EmpresaRoutes = require("../api/routes/empresa/empresa.routes");
-const SucursalRoutes = require("../api/routes/sucursal/sucursal.routes");
-const EgresoHostalRoutes = require("../api/routes/Hostal/egresoHostal.routes");
-const IngresoHostalRoutes = require("../api/routes/Hostal/ingresoHostal.routes");
-const EgresoLubricentroRoutes = require("../api/routes/Lubricentro/egresoLubricentro.routes");
-const IngresoLubricentroRoutes = require("../api/routes/Lubricentro/ingresoLubricentro.routes");
-const ClienteRoutes = require("../api/routes/cliente.routes");
-const CausaRoutes = require("../api/routes/Abogados/causas.routes");
-const ContratoClienteAbogadoRoutes = require("../api/routes/Abogados/contratoClienteAbogado.routes");
-const CuotasContratoAbogadoRoutes = require("../api/routes/Abogados/cuotasContratoAbogado.routes");
-const AbogadoRoutes = require("../api/routes/Abogados/abogado.routes");
-const EgresoFirmaRoutes = require("../api/routes/Abogados/egresoFirma.routes");
-const IngresoRentacarRoutes = require("../api/routes/Rentacar/ingresoRentacar.routes");
-const EgresoRentacarRoutes = require("../api/routes/Rentacar/egresoRentacar.routes");
-const BancoRoutes = require("../api/routes/banco.routes");
-const ProyectoAgrofirmaRoutes = require("../api/routes/agrofirma/proyectoAgrofirma.routes");
-const IngresoAgrofirmaRoutes = require("../api/routes/agrofirma/ingresoAgrofirma.routes");
-const EgresoAgrofirmaRoutes = require("../api/routes/agrofirma/egresoAgrofirma.routes");
-const EgresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/egresoInmobiliaria.routes");
-const IngresoInmobiliariaRoutes = require("../api/routes/Inmobiliaria/ingresoInmobiliaria.routes");
+const Routes = require('../api/routes');
+const UsuarioRoutes = require('../api/routes/usuario.routes');
+const RolRoutes = require('../api/routes/rol.routes');
+const AuthRoutes = require('../api/routes/auth.routes');
+const EmpresaRoutes = require('../api/routes/empresa/empresa.routes');
+const SucursalRoutes = require('../api/routes/sucursal/sucursal.routes');
+const EgresoHostalRoutes = require('../api/routes/Hostal/egresoHostal.routes');
+const IngresoHostalRoutes = require('../api/routes/Hostal/ingresoHostal.routes');
+const EgresoLubricentroRoutes = require('../api/routes/Lubricentro/egresoLubricentro.routes');
+const IngresoLubricentroRoutes = require('../api/routes/Lubricentro/ingresoLubricentro.routes');
+const ClienteRoutes = require('../api/routes/cliente.routes');
+const CausaRoutes = require('../api/routes/Abogados/causas.routes');
+const ContratoClienteAbogadoRoutes = require('../api/routes/Abogados/contratoClienteAbogado.routes');
+const CuotasContratoAbogadoRoutes = require('../api/routes/Abogados/cuotasContratoAbogado.routes');
+const AbogadoRoutes = require('../api/routes/Abogados/abogado.routes');
+const EgresoFirmaRoutes = require('../api/routes/Abogados/egresoFirma.routes');
+const IngresoRentacarRoutes = require('../api/routes/Rentacar/ingresoRentacar.routes');
+const EgresoRentacarRoutes = require('../api/routes/Rentacar/egresoRentacar.routes');
+const BancoRoutes = require('../api/routes/banco.routes');
+const ProyectoAgrofirmaRoutes = require('../api/routes/agrofirma/proyectoAgrofirma.routes');
+const IngresoAgrofirmaRoutes = require('../api/routes/agrofirma/ingresoAgrofirma.routes');
+const EgresoAgrofirmaRoutes = require('../api/routes/agrofirma/egresoAgrofirma.routes');
+const EgresoInmobiliariaRoutes = require('../api/routes/Inmobiliaria/egresoInmobiliaria.routes');
+const IngresoInmobiliariaRoutes = require('../api/routes/Inmobiliaria/ingresoInmobiliaria.routes');
 
 //importar helpers
-const { RequestApiHelper } = require("../helpers");
+const { RequestApiHelper } = require('../helpers');
 //importar middlewarez
 
 // business
@@ -60,7 +61,8 @@ const {
 	EgresoAgrofirmaBusiness,
 	EgresoInmobiliariaBusiness,
 	IngresoInmobiliariaBusiness,
-} = require("../domain/business");
+	GetIngresosMensualesBusiness,
+} = require('../domain/business');
 
 //controllers
 const {
@@ -86,10 +88,11 @@ const {
 	EgresoAgrofirmaController,
 	EgresoInmobiliariaController,
 	IngresoInmobiliariaController,
-} = require("../api/controllers");
+} = require('../api/controllers');
 
 //services
 const {
+	GetIngresosMensualesService,
 	BancoService,
 	UsuarioService,
 	RolService,
@@ -115,7 +118,7 @@ const {
 	EgresoAgrofirmaService,
 	EgresoInmobiliariaService,
 	IngresoInmobiliariaService,
-} = require("../services");
+} = require('../services');
 
 //repositories
 const {
@@ -142,10 +145,10 @@ const {
 	EgresoAgrofirmaRepository,
 	EgresoInmobiliariaRepository,
 	IngresoInmobiliariaRepository,
-} = require("../dal/repositories");
+} = require('../dal/repositories');
 
 //ENLACE A BD
-const db = require("../dal/models/");
+const db = require('../dal/models/');
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -166,6 +169,8 @@ container
 		app: asClass(StartUp).singleton(),
 		router: asFunction(Routes).singleton(),
 		server: asClass(Server).singleton(),
+		localServer: asClass(LocalServer).singleton(),
+
 		UsuarioController: asClass(UsuarioController).singleton(),
 		UsuarioRoutes: asFunction(UsuarioRoutes).singleton(),
 		RolController: asClass(RolController).singleton(),
@@ -262,6 +267,9 @@ container
 		EgresoAgrofirmaService: asClass(EgresoAgrofirmaService).singleton(),
 		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
 		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
+		GetIngresosMensualesService: asClass(
+			GetIngresosMensualesService
+		).singleton(),
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -305,6 +313,9 @@ container
 		).singleton(),
 	})
 	.register({
+		GetIngresosMensualesBusiness: asClass(
+			GetIngresosMensualesBusiness
+		).singleton(),
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
 		RolBusiness: asClass(RolBusiness).singleton(),
 		EmpresaBusiness: asClass(EmpresaBusiness).singleton(),

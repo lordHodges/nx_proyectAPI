@@ -1,21 +1,25 @@
-const { Router } = require("express");
+const { Router } = require('express');
 
 module.exports = function ({ BancoController }) {
 	const router = Router();
 
 	router.post(
-		"/persistirListaBancos",
+		'/persistirListaBancos',
 		BancoController.persistirListaBancos.bind(BancoController)
 	);
 
-	router.get("/obtenerBancos", BancoController.getBancos.bind(BancoController));
+	router.get('/obtenerBancos', BancoController.getBancos.bind(BancoController));
 	router.post(
-		"/registrarCuentasBancarias",
+		'/registrarCuentasBancarias',
 		BancoController.registrarCuentasBancarias.bind(BancoController)
 	);
 	router.get(
-		"/obtenerCuentasByEntity/:idEntity",
+		'/obtenerCuentasByEntity/:idEntity',
 		BancoController.obtenerCuentasByEntity.bind(BancoController)
+	);
+	router.get(
+		'/obtenerIngresosMensuales',
+		BancoController.obtenerIngresosMensuales.bind(BancoController)
 	);
 
 	return router;

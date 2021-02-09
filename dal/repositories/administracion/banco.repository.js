@@ -18,6 +18,10 @@ class BancoRepository extends BaseRepository {
 		const cuentaCreated = await this._db["CuentasProyecto"].create(cuenta);
 		return cuentaCreated;
 	}
+	async registrarCuentasSucursal(cuenta) {
+		const cuentaCreated = await this._db["CuentasSucursal"].create(cuenta);
+		return cuentaCreated;
+	}
 	async obtenerCuentasByEntity(idEntity) {
 		const cuentas = await this._db["CuentasProyecto"].findAll({
 			include: [{ model: this._db.Banco }],

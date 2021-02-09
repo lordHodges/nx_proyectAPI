@@ -31,7 +31,7 @@ class EgresoRentacarController {
 	}
 	async getEgresos(req, res) {
 		let egresos = await this._service.getAllWithJoin();
-		//egresos = egresos.map((usuario) => mapper(UsuarioDto, usuario));
+
 		return res.status(200).send(egresos);
 	}
 	async getEgreso(req, res) {
