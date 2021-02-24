@@ -1,7 +1,7 @@
 class BancoController {
-	constructor({ BancoService, GetIngresosMensualesService }) {
+	constructor({ BancoService }) {
 		this._service = BancoService;
-		this._ingresosService = GetIngresosMensualesService;
+
 	}
 	async persistirListaBancos(req, res) {
 		const bancos = await this._service.persistirListaBancos();
@@ -28,9 +28,6 @@ class BancoController {
 		const cuentas = await this._service.obtenerCuentasByEntity(idEntity);
 		return res.status(200).send(cuentas);
 	}
-	async obtenerIngresosMensuales(req, res) {
-		const ingresos = await this._ingresosService.getIngresos();
-		return res.status(200).send(ingresos);
-	}
+
 }
 module.exports = BancoController;

@@ -5,6 +5,10 @@ class EgresoAgrofirmaBusiness extends BaseBusiness {
 		super(EgresoAgrofirmaRepository);
 		this._repository = EgresoAgrofirmaRepository;
 	}
+	async obtenerAllEgresos(){
+		const egresos = await this._repository.getAll();
+		return egresos;
+	}
 	async obtenerEgresos(id) {
 		const egresos = await this._repository.obtenerEgresos(id);
 		return egresos;

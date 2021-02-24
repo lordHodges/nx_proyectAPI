@@ -29,6 +29,9 @@ module.exports = function ({
 	EgresoAgrofirmaRoutes,
 	IngresoInmobiliariaRoutes,
 	EgresoInmobiliariaRoutes,
+	GetIngresosEgresosRoutes,
+	CuentasRegistradasRoutes,
+	MovimientosCuentasRoutes,
 }) {
 	const router = Router();
 	router.use(morgan('short'));
@@ -40,7 +43,7 @@ module.exports = function ({
 	];
 	//
 	apiRoute.use(bodyParser.json()).use(compression()).use(cors());
-
+	apiRoute.use('/dash', GetIngresosEgresosRoutes);
 	apiRoute.use('/empresa', EmpresaRoutes);
 	apiRoute.use('/sucursal', SucursalRoutes);
 	apiRoute.use('/usuarios', UsuarioRoutes);
@@ -64,6 +67,8 @@ module.exports = function ({
 	apiRoute.use('/egresoAgrofirma', EgresoAgrofirmaRoutes);
 	apiRoute.use('/ingresoInmobiliaria', IngresoInmobiliariaRoutes);
 	apiRoute.use('/egresoInmobiliaria', EgresoInmobiliariaRoutes);
+	apiRoute.use('/cuentasRegistradas', CuentasRegistradasRoutes);
+	apiRoute.use('/movimientosCuentas', MovimientosCuentasRoutes);
 
 	//!prefj
 	router.use('/api', apiRoute);

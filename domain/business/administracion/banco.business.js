@@ -20,9 +20,6 @@ class BancoBusiness extends BaseBusiness {
 		let banco = {};
 		let bancos = [];
 		bancos = await this.obtenerBancos();
-		/* for (let index = 0; index < array.length; index++) {
-			const element = array[index];
-		} */
 		bancos["DescripcionesCodigosDeInstituciones"].forEach(async (bancoO) => {
 			banco.NombreInstitucion = bancoO.NombreInstitucion;
 

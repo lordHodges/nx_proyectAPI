@@ -34,4 +34,8 @@ module.exports = {
 	//?inmobiliaria
 	EgresoInmobiliariaRepository: require("./inmobiliaria/egresoInmobiliaria.repository"),
 	IngresoInmobiliariaRepository: require("./inmobiliaria/ingresoInmobiliaria.repository"),
+	CuentasRegistradasRepository: require('./administracion/cuentasRegistradas.repository'),
+	MovimientosCuentasRepository: require('./administracion/movimientosCuentas.repository'),
+	RespaldoIngresoRepository: require('./administracion/respaldoIngreso.repository'),
+	RespaldoEgresoRepository: require('./administracion/respaldoEgreso.repository'),
 };

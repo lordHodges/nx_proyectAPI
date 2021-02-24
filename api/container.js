@@ -31,38 +31,15 @@ const IngresoAgrofirmaRoutes = require('../api/routes/agrofirma/ingresoAgrofirma
 const EgresoAgrofirmaRoutes = require('../api/routes/agrofirma/egresoAgrofirma.routes');
 const EgresoInmobiliariaRoutes = require('../api/routes/Inmobiliaria/egresoInmobiliaria.routes');
 const IngresoInmobiliariaRoutes = require('../api/routes/Inmobiliaria/ingresoInmobiliaria.routes');
+const GetIngresosEgresosRoutes = require('../api/routes/getIngresosEgresos.routes');
+const CuentasRegistradasRoutes = require('../api/routes/cuentasRegistradas.router');
+const MovimientosCuentasRoutes = require('../api/routes/movmientosCuentas.routes');
 
 //importar helpers
 const { RequestApiHelper } = require('../helpers');
 //importar middlewarez
 
-// business
-const {
-	UsuarioBusiness,
-	RolBusiness,
-	EmpresaBusiness,
-	SucursalBusiness,
-	EgresoHostalBusiness,
-	IngresoHostalBusiness,
-	EgresoLubricentroBusiness,
-	IngresoLubricentroBusiness,
-	ClienteBusiness,
-	CausaBusiness,
-	ContratoClienteAbogadoBusiness,
-	CuotasContratoAbogadoBusiness,
-	AbogadoBusiness,
-	EgresoFirmaBusiness,
-	RentacarIngresosRequestBusiness,
 
-	EgresoRentacarBusiness,
-	BancoBusiness,
-	ProyectoAgrofirmaBusiness,
-	IngresoAgrofirmaBusiness,
-	EgresoAgrofirmaBusiness,
-	EgresoInmobiliariaBusiness,
-	IngresoInmobiliariaBusiness,
-	GetIngresosMensualesBusiness,
-} = require('../domain/business');
 
 //controllers
 const {
@@ -88,11 +65,45 @@ const {
 	EgresoAgrofirmaController,
 	EgresoInmobiliariaController,
 	IngresoInmobiliariaController,
+	GetIngresosEgresosController,
+	CuentasRegistradasController,
+	MovimientosCuentasController
 } = require('../api/controllers');
+
+// business
+const {
+	UsuarioBusiness,
+	RolBusiness,
+	EmpresaBusiness,
+	SucursalBusiness,
+	EgresoHostalBusiness,
+	IngresoHostalBusiness,
+	EgresoLubricentroBusiness,
+	IngresoLubricentroBusiness,
+	ClienteBusiness,
+	CausaBusiness,
+	ContratoClienteAbogadoBusiness,
+	AbogadoBusiness,
+	CuotasContratoAbogadoBusiness,
+	EgresoFirmaBusiness,
+	RentacarIngresosRequestBusiness,
+	EgresoRentacarBusiness,
+	BancoBusiness,
+	ProyectoAgrofirmaBusiness,
+	IngresoAgrofirmaBusiness,
+	EgresoAgrofirmaBusiness,
+	EgresoInmobiliariaBusiness,
+	IngresoInmobiliariaBusiness,
+	GetEgresosBusiness,
+	GetIngresosBusiness,
+	GetIngresosMensualesBusiness,
+	CuentasRegistradasBusiness,
+	MovimientosCuentasBusiness,
+} = require('../domain/business');
 
 //services
 const {
-	GetIngresosMensualesService,
+	GetIngresosEgresosService,
 	BancoService,
 	UsuarioService,
 	RolService,
@@ -118,6 +129,8 @@ const {
 	EgresoAgrofirmaService,
 	EgresoInmobiliariaService,
 	IngresoInmobiliariaService,
+	CuentasRegistradasService,
+	MovimientosCuentasService
 } = require('../services');
 
 //repositories
@@ -145,10 +158,16 @@ const {
 	EgresoAgrofirmaRepository,
 	EgresoInmobiliariaRepository,
 	IngresoInmobiliariaRepository,
+	CuentasRegistradasRepository,
+	MovimientosCuentasRepository,
+	RespaldoEgresoRepository,
+	RespaldoIngresoRepository,
+
 } = require('../dal/repositories');
 
 //ENLACE A BD
 const db = require('../dal/models/');
+
 
 //INICIALIZAR CONTaINER
 const container = createContainer();
@@ -233,9 +252,13 @@ container
 		EgresoInmobiliariaController: asClass(
 			EgresoInmobiliariaController
 		).singleton(),
-		IngresoInmobiliariaController: asClass(
-			IngresoInmobiliariaController
-		).singleton(),
+		IngresoInmobiliariaController: asClass(IngresoInmobiliariaController).singleton(),
+		GetIngresosEgresosController: asClass(GetIngresosEgresosController).singleton(),
+		GetIngresosEgresosRoutes: asFunction(GetIngresosEgresosRoutes).singleton(),
+		CuentasRegistradasRoutes: asFunction(CuentasRegistradasRoutes).singleton(),
+		CuentasRegistradasController: asClass(CuentasRegistradasController).singleton(),
+		MovimientosCuentasRoutes: asFunction(MovimientosCuentasRoutes).singleton(),
+		MovimientosCuentasController: asClass(MovimientosCuentasController).singleton(),
 	})
 
 	.register({
@@ -267,9 +290,12 @@ container
 		EgresoAgrofirmaService: asClass(EgresoAgrofirmaService).singleton(),
 		EgresoInmobiliariaService: asClass(EgresoInmobiliariaService).singleton(),
 		IngresoInmobiliariaService: asClass(IngresoInmobiliariaService).singleton(),
-		GetIngresosMensualesService: asClass(
-			GetIngresosMensualesService
+		GetIngresosEgresosService: asClass(
+			GetIngresosEgresosService
 		).singleton(),
+		CuentasRegistradasService: asClass(CuentasRegistradasService).singleton(),
+		MovimientosCuentasService: asClass(MovimientosCuentasService).singleton(),
+
 	})
 	.register({
 		UsuarioRepository: asClass(UsuarioRepository).singleton(),
@@ -311,11 +337,13 @@ container
 		IngresoInmobiliariaRepository: asClass(
 			IngresoInmobiliariaRepository
 		).singleton(),
+		CuentasRegistradasRepository: asClass(CuentasRegistradasRepository).singleton(),
+		MovimientosCuentasRepository: asClass(MovimientosCuentasRepository).singleton(),
+		RespaldoIngresoRepository: asClass(RespaldoIngresoRepository).singleton(),
+		RespaldoEgresoRepository: asClass(RespaldoEgresoRepository).singleton(),
 	})
 	.register({
-		GetIngresosMensualesBusiness: asClass(
-			GetIngresosMensualesBusiness
-		).singleton(),
+
 		UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
 		RolBusiness: asClass(RolBusiness).singleton(),
 		EmpresaBusiness: asClass(EmpresaBusiness).singleton(),
@@ -346,5 +374,14 @@ container
 		IngresoInmobiliariaBusiness: asClass(
 			IngresoInmobiliariaBusiness
 		).singleton(),
+		GetIngresosBusiness: asClass(
+			GetIngresosBusiness
+		).singleton(),
+		GetEgresosBusiness: asClass(
+			GetEgresosBusiness
+		).singleton(),
+		GetIngresosMensualesBusiness: asClass(GetIngresosMensualesBusiness).singleton(),
+		CuentasRegistradasBusiness: asClass(CuentasRegistradasBusiness).singleton(),
+		MovimientosCuentasBusiness: asClass(MovimientosCuentasBusiness).singleton(),
 	});
 module.exports = container;

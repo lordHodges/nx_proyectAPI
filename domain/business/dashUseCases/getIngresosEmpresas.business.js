@@ -1,4 +1,4 @@
-class GetIngresosMensualesBusiness {
+class GetIngresosBusiness {
 	constructor({
 		IngresoHostalRepository,
 		IngresoInmobiliariaRepository,
@@ -53,15 +53,7 @@ class GetIngresosMensualesBusiness {
 		];
 	}
 
-	/* ingresosBySucursal(ingresosList) {
-		const listSucursales = [];
-		ingresosList.forEach((data) => {
-			if (!listSucursales.includes(data.sucursal)) {
-				listSucursales.push(data.sucursal);
-			}
-		});
-		return listSucursales;
-	} */
+
 
 	formatearTotalesIngresos(ingresoList) {
 		let ingresoTotal = 0;
@@ -74,4 +66,4 @@ class GetIngresosMensualesBusiness {
 		return ingresoTotal;
 	}
 }
-module.exports = GetIngresosMensualesBusiness;
+module.exports = GetIngresosBusiness;

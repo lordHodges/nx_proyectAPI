@@ -21,6 +21,11 @@ module.exports = {
 	EgresoAgrofirmaBusiness: require('./agrofirma/egresoAgrofirfma.business'),
 	EgresoInmobiliariaBusiness: require('./Inmobiliaria/egresoInmobiliaria.business'),
 	IngresoInmobiliariaBusiness: require('./Inmobiliaria/ingresoInmobiliaria.business'),
-	GetIngresosMensualesBusiness: require('./dashUseCases/getIngresosEmpresas.business'),
+	GetIngresosBusiness: require('./dashUseCases/getIngresosEmpresas.business'),
+	GetEgresosBusiness: require('./dashUseCases/getEgresosEmpresas.business'),
+	GetIngresosMensualesBusiness: require('./dashUseCases/getIngresosMensuales.business'),
+	CuentasRegistradasBusiness: require('./administracion/cuentasRegistradas.business'),
+	MovimientosCuentasBusiness: require('./administracion/movimientosCuentas.business'),
+
 };
 //add tracking here

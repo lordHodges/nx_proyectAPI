@@ -52,14 +52,7 @@ module.exports = function ({ EgresoHostalController }) {
 
 		return res.sendFile(filepath);
 	});
-	/*  router.put(
-    "/:id",
-    EgresoHostalController.updateEgreso.bind(EgresoHostalController)
-  );
-  router.delete(
-    "/:id",
-    EgresoHostalController.deleteEgreso.bind(EgresoHostalController)
-  ); */
+
 
 	return router;
 };

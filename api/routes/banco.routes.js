@@ -17,10 +17,7 @@ module.exports = function ({ BancoController }) {
 		'/obtenerCuentasByEntity/:idEntity',
 		BancoController.obtenerCuentasByEntity.bind(BancoController)
 	);
-	router.get(
-		'/obtenerIngresosMensuales',
-		BancoController.obtenerIngresosMensuales.bind(BancoController)
-	);
+	
 
 	return router;
 };

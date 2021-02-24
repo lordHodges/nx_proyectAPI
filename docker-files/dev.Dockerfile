@@ -1,8 +1,10 @@
 #imagen base
 
-FROM node:14.15.4
+FROM node
 # set working directory
 RUN mkdir /usr/src/app
+RUN mkdir /usr/src/uploads
+RUN mkdir /usr/src/uploads/egresoHostal
 WORKDIR /usr/src/app
 
 # add .bin to $PATH
@@ -12,6 +14,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY ./package.json /usr/src/app/package.json
 RUN npm install
 #install pm2 dependences
+
 # RUN npm install -g @angular/cli@1.7.3 
 
 # add app
