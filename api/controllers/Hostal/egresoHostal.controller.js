@@ -21,6 +21,7 @@ class EgresoHostalController {
 
 	async createEgresoWithRespaldo(req, res) {
 		const { body } = req;
+		console.log(body.RespaldoEgresos);
 		const created = await this._service.createWithRespaldos(body);
 
 		return res.status(201).send({

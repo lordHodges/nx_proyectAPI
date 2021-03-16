@@ -8,6 +8,7 @@ class EgresoLubricentroRepository extends BaseRepository {
     this._egreso = "EgresoLubricentro";
   }
   async getAllWithJoins() {
+
     const egresos = await this._db[this._egreso].findAll({
       include: [
         { model: this._db.Sucursal },

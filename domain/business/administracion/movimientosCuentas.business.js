@@ -1,5 +1,10 @@
 class MovimientosCuentasBusiness {
-    constructor({ CuentasRegistradasBusiness, MovimientosCuentasRepository, RespaldoEgresoRepository, RespaldoIngresoRepository }) {
+    constructor({
+        CuentasRegistradasBusiness,
+        MovimientosCuentasRepository,
+        RespaldoEgresoRepository,
+        RespaldoIngresoRepository
+    }) {
         this._cuentasBusiness = CuentasRegistradasBusiness;
         this._movimientosRepository = MovimientosCuentasRepository;
         this._respaldoEgresoRepository = RespaldoEgresoRepository;
@@ -44,7 +49,10 @@ class MovimientosCuentasBusiness {
                 saldoActual: estadoActual.saldo,
             };
             const created = await this._movimientosRepository.create(movimiento);
-            await this._respaldoIngresoRepository.create({ url: file, idMovimiento: created.id });
+            if (!file === null) {
+                await this._respaldoIngresoRepository.create({ url: file, idMovimiento: created.id });
+            }
+
             return created;
         } else {
 

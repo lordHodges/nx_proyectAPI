@@ -40,7 +40,7 @@ class RentacarIngresosRequestBusiness extends BaseBusiness {
 			if (arriendo['id_arriendo'] == idArriendo) {
 				arriendo['pagosArriendos'].forEach((pagoArriendo) => {
 					detalle = {};
-
+					console.log(pagoArriendo);
 					detalle['idPago'] = pagoArriendo['id_pagoArriendo'];
 					if (pagoArriendo['pagos'].length > 1) {
 						pagoCliente += pagoArriendo['pagos'][0]['total_pago'];

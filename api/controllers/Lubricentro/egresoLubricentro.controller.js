@@ -5,10 +5,10 @@ class EgresoLubricentroController {
     this._service = EgresoLubricentroService;
   }
   async getDetalleEgreso(req, res) {
-		const { id } = req.params;
-		const egreso = await this._service.getOneWithJoin(id);
-		return res.status(200).send(egreso);
-	}
+    const { id } = req.params;
+    const egreso = await this._service.getOneWithJoin(id);
+    return res.status(200).send(egreso);
+  }
   async upload(req, res) {
     if (!req.file) {
       console.log("No file received");
@@ -38,7 +38,7 @@ class EgresoLubricentroController {
     return res.status(200).send(egresos);
   }
   async getEgreso(req, res) {
-    const{ id }= req.params;
+    const { id } = req.params;
     let egreso = await this._service.getOneWithJoin(id);
     return res.send(egreso);
   }

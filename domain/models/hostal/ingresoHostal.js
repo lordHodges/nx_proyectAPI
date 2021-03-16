@@ -9,6 +9,7 @@ class IngresoHostal {
   cliente = null;
   idSucursal = 0;
   idUsuario = 0;
+  idCunetaAsignada = 0;
   respaldoEgresos = [ResoaldoIngreso];
 }
 module.exports = IngresoHostal;

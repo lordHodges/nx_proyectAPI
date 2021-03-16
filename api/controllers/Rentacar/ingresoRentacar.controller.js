@@ -4,6 +4,7 @@ class IngresoRentacarController {
 	}
 	async getArriendos(req, res) {
 		const arriendos = await this._rentacarService.getArriendos();
+
 		return res.status(200).send(arriendos);
 	}
 	async getDetallePagos(req, res) {
